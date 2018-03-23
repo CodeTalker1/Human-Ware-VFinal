@@ -265,7 +265,6 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         cerrarFrame = new javax.swing.JLabel();
 
-        solicitantes.setMaximumSize(new java.awt.Dimension(760, 423));
         solicitantes.setMinimumSize(new java.awt.Dimension(760, 423));
         solicitantes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -429,7 +428,6 @@ public class HumanWare extends javax.swing.JFrame {
 
         solicitantes.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 420));
 
-        agregarFrame.setMaximumSize(new java.awt.Dimension(742, 530));
         agregarFrame.setMinimumSize(new java.awt.Dimension(742, 530));
         agregarFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -848,6 +846,7 @@ public class HumanWare extends javax.swing.JFrame {
         panelIngreso.add(usuarioField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 170, 30));
 
         contraseñaField.setBackground(new java.awt.Color(0, 0, 51));
+        contraseñaField.setForeground(new java.awt.Color(153, 153, 153));
         contraseñaField.setText("Ingrese contraseña");
         contraseñaField.setBorder(null);
         contraseñaField.addMouseListener(new java.awt.event.MouseAdapter() {

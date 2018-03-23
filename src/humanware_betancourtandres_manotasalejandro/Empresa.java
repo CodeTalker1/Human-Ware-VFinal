@@ -319,7 +319,6 @@ public class Empresa extends javax.swing.JFrame {
         cerrar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        agregarEmpresaFrame.setMaximumSize(new java.awt.Dimension(627, 394));
         agregarEmpresaFrame.setMinimumSize(new java.awt.Dimension(627, 394));
         agregarEmpresaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1044,7 +1043,7 @@ public class Empresa extends javax.swing.JFrame {
         jPanel7.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         candidatoITable.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
-        candidatoITable.setForeground(new java.awt.Color(255, 255, 255));
+        candidatoITable.setForeground(new java.awt.Color(0, 0, 0));
         candidatoITable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1056,9 +1055,16 @@ public class Empresa extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, false, false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         candidatoITable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1642,9 +1648,10 @@ public class Empresa extends javax.swing.JFrame {
                 while (linea != null) {
                     
                     String [] datos = linea.split(",");
-                    String [] datos1 = ofertasTable.getValueAt(ofertasTable.getSelectedRow(), 5).toString().split(",");
+                    String [] datos1 = ofertasTable.getValueAt(ofertasTable.getSelectedRow(), 5).toString().split(" ");
                     
-                    if (datos[6].equalsIgnoreCase(datos1[0]) || datos[7].equalsIgnoreCase(datos1[0])) {
+                    if (datos[6].equalsIgnoreCase(datos1[0]) || datos[6].equalsIgnoreCase(datos1[2])
+                            || datos[7].equalsIgnoreCase(datos1[0]) || datos[7].equalsIgnoreCase(datos1[1])) {
                         String nombre = datos[0];
                         String email = datos[1];
                         long telefono = Long.parseLong(datos[2]);
@@ -1665,16 +1672,17 @@ public class Empresa extends javax.swing.JFrame {
                 Logger.getLogger(Empresa.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            this.dispose();
+            ofertaEmpresaTrabajo.dispose();
             
-            ordernarIdoneos(modelo);
+            
+            //ordernarIdoneos(modelo);
             
             IdoneosFrame.setVisible(true);
         }
 
     }//GEN-LAST:event_ofertasTableMouseClicked
     
-    public void ordernarIdoneos(DefaultTableModel model) {
+    /*public void ordernarIdoneos(DefaultTableModel model) {
         //Ordena los solicitantes de manera descendente, del más calificado al menos calificado
         for (int i = 0; i < model.getRowCount(); i++) {
             if (Integer.parseInt(model.getValueAt(i, 7).toString())
@@ -1709,7 +1717,7 @@ public class Empresa extends javax.swing.JFrame {
                 
             }
         }
-    }
+    }*/
     
 
     private void empresaTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresaTablaMouseClicked
@@ -1828,15 +1836,11 @@ public class Empresa extends javax.swing.JFrame {
 //Genera una simulación de que se envia un correo
 
         if (evt.getClickCount() == 2) {
+            IdoneosFrame.dispose();
             new EnviarCorreo().setVisible(true);
         }
 
     }//GEN-LAST:event_candidatoITableMouseClicked
-
-    public String dameEmailIdoneo(){
-        String emailIdoneo = candidatoITable.getValueAt(candidatoITable.getSelectedRow(), 1).toString();       
-        return emailIdoneo;
-    }
     
     public Frame dameIdoneosFrame(){
         return IdoneosFrame;
@@ -2067,6 +2071,7 @@ public class Empresa extends javax.swing.JFrame {
 
         if(evt.getClickCount() == 2){
             IdoneosFrame.dispose();
+            ofertaEmpresaTrabajo.setVisible(true);
         }
 
     }//GEN-LAST:event_retrocederListaOfertasMouseClicked

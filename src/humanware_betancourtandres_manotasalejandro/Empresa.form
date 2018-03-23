@@ -4,9 +4,6 @@
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="agregarEmpresaFrame">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[627, 394]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[627, 394]"/>
         </Property>
@@ -1770,17 +1767,17 @@
                       <Font name="Ebrima" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="0">
-                        <Column editable="true" title="Nombre" type="java.lang.String"/>
-                        <Column editable="true" title="E-mail" type="java.lang.String"/>
+                        <Column editable="false" title="Nombre" type="java.lang.String"/>
+                        <Column editable="false" title="E-mail" type="java.lang.String"/>
                         <Column editable="true" title="Tel&#xe9;fono" type="java.lang.Long"/>
-                        <Column editable="true" title="Retribuci&#xf3;n" type="java.lang.Long"/>
-                        <Column editable="true" title="Foto" type="java.lang.Object"/>
-                        <Column editable="true" title="Jornada" type="java.lang.String"/>
-                        <Column editable="true" title="Titulaciones" type="java.lang.String"/>
+                        <Column editable="false" title="Retribuci&#xf3;n" type="java.lang.Long"/>
+                        <Column editable="false" title="Foto" type="java.lang.Object"/>
+                        <Column editable="false" title="Jornada" type="java.lang.String"/>
+                        <Column editable="false" title="Titulaciones" type="java.lang.String"/>
                         <Column editable="true" title="Habilidades" type="java.lang.String"/>
                       </Table>
                     </Property>

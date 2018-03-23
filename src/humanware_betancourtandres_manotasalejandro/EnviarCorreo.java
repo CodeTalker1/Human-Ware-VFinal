@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
  */
 public class EnviarCorreo extends javax.swing.JFrame {
 
-    Empresa email = new Empresa();
-    
+Empresa frames = new Empresa();
+
     public EnviarCorreo() {
         initComponents();
         
@@ -19,7 +19,7 @@ public class EnviarCorreo extends javax.swing.JFrame {
         
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         
-        idoneoEmail.setText(email.dameEmailIdoneo());
+        idoneoEmail.setText("Digite el correo del empleado a contratar");
         asuntoField.setText("Escriba el asunto");
         
     }
@@ -94,12 +94,22 @@ public class EnviarCorreo extends javax.swing.JFrame {
         idoneoEmail.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         idoneoEmail.setForeground(new java.awt.Color(0, 0, 0));
         idoneoEmail.setBorder(null);
+        idoneoEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                idoneoEmailMouseClicked(evt);
+            }
+        });
         getContentPane().add(idoneoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 42, 306, -1));
 
         asuntoField.setBackground(new java.awt.Color(255, 255, 255));
         asuntoField.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         asuntoField.setForeground(new java.awt.Color(0, 0, 0));
         asuntoField.setBorder(null);
+        asuntoField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                asuntoFieldMouseClicked(evt);
+            }
+        });
         getContentPane().add(asuntoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 79, 303, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
@@ -194,7 +204,7 @@ public class EnviarCorreo extends javax.swing.JFrame {
         AnimationClass retrocederf = new AnimationClass();
         
         retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederIdoneos);
-        cambiarf.jLabelXRight(-40, 10, 10, 5, irLogin);
+        cambiarf.jLabelXLeft(10, -40, 10, 5, irLogin);
         cerrarf.jLabelXLeft(10, -40, 10, 5, cerrarFrames);
         
 
@@ -202,7 +212,6 @@ public class EnviarCorreo extends javax.swing.JFrame {
 
     private void retrocederIdoneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederIdoneosMouseClicked
 //Retrocede a la lista de los solicitantes idoneos
-Empresa frames = new Empresa();
         if(evt.getClickCount() == 2){
             this.dispose();
             frames.dameIdoneosFrame().setVisible(true);
@@ -213,7 +222,6 @@ Empresa frames = new Empresa();
     private void irLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_irLoginMouseClicked
 //Retrocede al login desde el frame para enviar correos
         HumanWare Field = new HumanWare();
-        Empresa frames = new Empresa();
         if (evt.getClickCount() == 2) {
             this.dispose();
             frames.dameIdoneosFrame().dispose();
@@ -239,11 +247,30 @@ Empresa frames = new Empresa();
         if(!idoneoEmail.getText().isEmpty() && !asuntoField.getText().isEmpty() && 
                 !correoField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Correo enviado exitosamente", "Exito", JOptionPane.OK_OPTION);
+            this.dispose();
+            frames.dameIdoneosFrame().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_enviarCorreoBtnActionPerformed
+
+    private void idoneoEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idoneoEmailMouseClicked
+
+        if(evt.getClickCount() == 1){
+            idoneoEmail.setText("");
+        }
+        
+    }//GEN-LAST:event_idoneoEmailMouseClicked
+
+    private void asuntoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asuntoFieldMouseClicked
+
+        if(evt.getClickCount() == 1){
+            asuntoField.setText("");
+        }
+        
+
+    }//GEN-LAST:event_asuntoFieldMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
