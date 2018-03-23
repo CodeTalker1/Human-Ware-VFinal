@@ -235,7 +235,7 @@ Empresa frames = new Empresa();
     }//GEN-LAST:event_irLoginMouseClicked
 
     private void cerrarFramesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarFramesMouseClicked
-
+//Cierra el programa
         if(evt.getClickCount() == 2){
             System.exit(0);
         }
@@ -243,7 +243,7 @@ Empresa frames = new Empresa();
     }//GEN-LAST:event_cerrarFramesMouseClicked
 
     private void enviarCorreoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarCorreoBtnActionPerformed
-
+//Envia el correo electronico
         if(!idoneoEmail.getText().isEmpty() && !asuntoField.getText().isEmpty() && 
                 !correoField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Correo enviado exitosamente", "Exito", JOptionPane.OK_OPTION);
@@ -256,7 +256,7 @@ Empresa frames = new Empresa();
     }//GEN-LAST:event_enviarCorreoBtnActionPerformed
 
     private void idoneoEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idoneoEmailMouseClicked
-
+//Vacia el campo de texto del email
         if(evt.getClickCount() == 1){
             idoneoEmail.setText("");
         }
@@ -264,11 +264,10 @@ Empresa frames = new Empresa();
     }//GEN-LAST:event_idoneoEmailMouseClicked
 
     private void asuntoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asuntoFieldMouseClicked
-
+//Vacia el campo de texto del asunto
         if(evt.getClickCount() == 1){
             asuntoField.setText("");
         }
-        
 
     }//GEN-LAST:event_asuntoFieldMouseClicked
 
