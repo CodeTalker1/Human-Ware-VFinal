@@ -7,17 +7,22 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Alejo
+ * @version Final
  */
 public class EnviarCorreo extends javax.swing.JFrame {
 
 Empresa frames = new Empresa();
 
+/**
+ * En el constructor se pondra el frame de esta clase centrado y se le cambiara el icono
+ * Tambien se pondran por defecto los jTextField para que se escriban sobre ellos
+ */
     public EnviarCorreo() {
         initComponents();
         
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); //Se centra el frame
         
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage()); //Se cambia el icono
         
         idoneoEmail.setText("Digite el correo del empleado a contratar");
         asuntoField.setText("Escriba el asunto");
@@ -187,6 +192,11 @@ Empresa frames = new Empresa();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Desde este frame cuando se le da click al menu en la esquina superior izquierda
+     * se despliegan los diferentes iconos y cuando se le vuelve a dar click los quita del frame
+     * @param evt 
+     */
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
 
         //Desde el frame para enviar un correo
@@ -194,22 +204,27 @@ Empresa frames = new Empresa();
         AnimationClass retrocederr = new AnimationClass();
         AnimationClass cambiarr = new AnimationClass();
         //Se desplaza hacia la derecha
-        retrocederr.jLabelXRight(-40, 10, 10, 5, retrocederIdoneos);
-        cambiarr.jLabelXRight(-40, 10, 10, 5, irLogin);
-        cerrarr.jLabelXRight(-40, 10, 10, 5, cerrarFrames);
+        retrocederr.jLabelXRight(-40, 10, 10, 5, retrocederIdoneos);//Icono para retroceder se desplaza hacia la derecha
+        cambiarr.jLabelXRight(-40, 10, 10, 5, irLogin);//Icono para ir al login se desplaza hacia la derecha
+        cerrarr.jLabelXRight(-40, 10, 10, 5, cerrarFrames);//Icono para cerrar el programa se desplaza hacia la derecha
 
         //Se desplaza hacia la izquierda
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambiarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
         
-        retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederIdoneos);
-        cambiarf.jLabelXLeft(10, -40, 10, 5, irLogin);
-        cerrarf.jLabelXLeft(10, -40, 10, 5, cerrarFrames);
+        retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederIdoneos);//El icono para retroceder se desplaza hacia la izquierda
+        cambiarf.jLabelXLeft(10, -40, 10, 5, irLogin);//El icono para ir al login se desplaza hacia la izquierda
+        cerrarf.jLabelXLeft(10, -40, 10, 5, cerrarFrames);//El icono para cerrar el programa se desplaza hacia a la izquierda
         
 
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    /**
+     * Cuando se la doble click al icono de retroceder te lleva al frame al frame de los soliciantes idoneos
+     * @param evt 
+     */
+    
     private void retrocederIdoneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederIdoneosMouseClicked
 //Retrocede a la lista de los solicitantes idoneos
         if(evt.getClickCount() == 2){
@@ -219,6 +234,10 @@ Empresa frames = new Empresa();
 
     }//GEN-LAST:event_retrocederIdoneosMouseClicked
 
+    /**
+     * Cuando se le da doble click te lleva al frame del login 
+     * @param evt 
+     */
     private void irLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_irLoginMouseClicked
 //Retrocede al login desde el frame para enviar correos
         HumanWare Field = new HumanWare();
@@ -234,6 +253,10 @@ Empresa frames = new Empresa();
 
     }//GEN-LAST:event_irLoginMouseClicked
 
+    /**
+     * Cuando se le da doble click cierra el programa
+     * @param evt 
+     */
     private void cerrarFramesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarFramesMouseClicked
 //Cierra el programa
         if(evt.getClickCount() == 2){
@@ -242,6 +265,10 @@ Empresa frames = new Empresa();
 
     }//GEN-LAST:event_cerrarFramesMouseClicked
 
+    /**
+     * Cuando se le click al boto comprueba que los campos no esten vacios y envia al correo electronico
+     * @param evt 
+     */    
     private void enviarCorreoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarCorreoBtnActionPerformed
 //Envia el correo electronico
         if(!idoneoEmail.getText().isEmpty() && !asuntoField.getText().isEmpty() && 
@@ -255,6 +282,11 @@ Empresa frames = new Empresa();
 
     }//GEN-LAST:event_enviarCorreoBtnActionPerformed
 
+    /**
+     * Cuando se le da click al campo del email al que se va a enviar se pone vacio si hay algo escrito
+     * @param evt 
+     */
+    
     private void idoneoEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idoneoEmailMouseClicked
 //Vacia el campo de texto del email
         if(evt.getClickCount() == 1){
@@ -263,6 +295,11 @@ Empresa frames = new Empresa();
         
     }//GEN-LAST:event_idoneoEmailMouseClicked
 
+    /**
+     * Cuando se le da click al campo del asunto se pone vacio si hay algo escrito
+     * @param evt 
+     */
+    
     private void asuntoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asuntoFieldMouseClicked
 //Vacia el campo de texto del asunto
         if(evt.getClickCount() == 1){

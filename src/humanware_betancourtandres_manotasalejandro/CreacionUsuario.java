@@ -18,6 +18,7 @@ import javax.swing.KeyStroke;
 /**
  *
  * @author Alejo
+ * @version Final
  */
 public class CreacionUsuario extends javax.swing.JFrame {
 
@@ -25,12 +26,16 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
     ;
 
+    /**
+     * En el constructor se centra el frame y se cambia el icono
+     * Se llaman funciones para no permitir caracteres invalidos en los respectivos jTextField
+     */
     public CreacionUsuario() {
         initComponents();
         
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); //Se centra el frame
 
-        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());//Se cambia el icono
 
         noPasteUsuarioField();
 
@@ -38,22 +43,39 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
     }
 
+    /**
+    * No permite que se copie y pegue en el campo de usuario para su creacion, así no se introducen caracteres invalidos
+     */
     public void noPasteUsuarioField() {
         //Hace que el usuario no copie y pegue caracteres invalidos en el campo de usuario al momento de crearlo
         InputMap map2 = usuarioField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-
+    
+    /**
+     *No permite que se copie y pegue en el campo de la contraseña para la creacion del usuario
+     * así no introducen caracteres invalidos
+     */
     public void noPasteContraseñaField() {
         //Hace que el usuario no copie y pegue caracteres invalidos en el campo de contraseña al momento de crearlo
         InputMap map2 = contraseñaUsuarioField.getInputMap(JPasswordField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
     
+    /**
+     * Retorna el campo de usuario para al momento de crearlo predeterminar lo que tendrá escrito
+     * al momento de ingresar
+     * @return usuarioField
+     */
     public JTextField dameCreacionUsuarioField(){
         return usuarioField;
     }
     
+    /**
+     * Retorna el campo de la contraseña del usuario al momento de crearlo para predeterminar lo que tendrá
+     * escrito al momento de ingresar
+     * @return contraseñaUsuarioField
+     */
     public JTextField dameCreacionContraseñaField(){
         return contraseñaUsuarioField;
     }
@@ -219,17 +241,26 @@ public class CreacionUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * No permite que se digiten caracteres diferentes a letras y numeros
+     * @param evt 
+     */
+    
     private void contraseñaUsuarioFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñaUsuarioFieldKeyTyped
 //Al momento de digitar su contraseña para crearla solo puede digitar letras y numeros sin caracteres especiales
         String car = String.valueOf(evt.getKeyChar());
 
         if (!(car.matches("[a-zA-Z0-9]"))) {
-            evt.consume();
+            evt.consume();//Si el caracter no esta en el rango del condicional se borra
         }
 
 
     }//GEN-LAST:event_contraseñaUsuarioFieldKeyTyped
 
+    /**
+     * No permite que en el campo de usuarios se digiten números ni caracteres invalidos
+     * @param evt 
+     */
     private void usuarioFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioFieldKeyTyped
 //No puede crear un usuario con números, solo con letras 
         char car = evt.getKeyChar();
@@ -246,50 +277,55 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 && car != 'Ú'
                 && car != 'ñ'
                 && car != 'Ñ'
-                && (car != (char) KeyEvent.VK_SPACE)
-                && (car != (char) KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
+                && (car != (char) KeyEvent.VK_SPACE)//Permite la barra espaciadora
+                && (car != (char) KeyEvent.VK_BACK_SPACE)) {//Permite la barra espaciadora
+            evt.consume();//Si el caracter no esta entre los listados, se borra
             JOptionPane.showMessageDialog(null, "Este caracter no esta permitido", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_usuarioFieldKeyTyped
 
+    /**
+     * Cuando se le da al boton de usuario se va al archivo de usuario y si no esta creado
+     * crea un nuevo usuario
+     * @param evt 
+     */
     private void crearUsuarioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioBtnActionPerformed
 //Crea el usuario si los respectivos campos están llenos
         boolean vacio = false;
         String usuario = "", contraseña = "", tipoUsuario;
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {//Para escribir sobre el archivo
+            BufferedReader br = new BufferedReader(new FileReader(file));//Para leer el archivo
 
-            String linea = br.readLine();
+            String linea = br.readLine();//Obtiene lo que haya en el archivo
             while (linea != null) {
-                String u = linea.split(",")[0];
-                if (u.equals(usuarioField.getText().trim())) {
+                String u = linea.split(",")[0];//Para comparar que el usuario no exista
+                if (u.equals(usuarioField.getText().trim())) {//Revisa que el usuario no este creado
                     JOptionPane.showMessageDialog(null, "Este usuario ya existe", "Error", JOptionPane.ERROR_MESSAGE);
-                    br.close();
-                    bw.close();
-                    return;
+                    br.close();//Cierra el BufferedReader
+                    bw.close();//Cierra el BufferedWriter
+                    return;//Retorna verdadero
                 }
                 linea = br.readLine();
             }
-            if (usuarioField.getText().isEmpty()) {
+            if (usuarioField.getText().isEmpty()) {//Revisa que el campo del nombre no este vacio
                 JOptionPane.showMessageDialog(null, "El campo de usuario esta vacio", "Error", JOptionPane.WARNING_MESSAGE);
                 vacio = true;
             } else {
                 usuario = usuarioField.getText();
             }
 
-            if (contraseñaUsuarioField.getText().isEmpty()) {
+            if (contraseñaUsuarioField.getText().isEmpty()) {//Revisa que el campo de la contraseña no este vacio
                 JOptionPane.showMessageDialog(null, "El campo de contraseña esta vacio", "Error", JOptionPane.WARNING_MESSAGE);
                 vacio = true;
             } else {
                 contraseña = contraseñaUsuarioField.getText();
             }
 
-            tipoUsuario = (String) tipoUsuarioBox.getSelectedItem();
+            tipoUsuario = (String) tipoUsuarioBox.getSelectedItem(); //Obtiene el tipo de usuario que sera la persona que se registra
 
-            if (vacio) {
+            if (vacio) {//Si se llenaron los campos se crea el usuario
                 JOptionPane.showMessageDialog(null, "LLene los correspondientes datos"
                         + " para crear el usuario", "Error", JOptionPane.WARNING_MESSAGE);
             } else {
@@ -299,8 +335,8 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 this.setVisible(false);
             }
 
-            bw.write(usuario + "," + contraseña + "," + tipoUsuario + "\n");
-            bw.close();
+            bw.write(usuario + "," + contraseña + "," + tipoUsuario + "\n");//Escribe en el archivo los usuarios creados
+            bw.close();//Cierra el BufferedWriter
         } catch (Exception ignored) {
             
         }
@@ -308,25 +344,33 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_crearUsuarioBtnActionPerformed
 
+    /**
+    *Desplaza los diferentes iconos para cerrar y retroceder  
+    * @param evt 
+     */
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
 
         //Desde el frame de la creación de usuario
         AnimationClass cerrarr = new AnimationClass();
         AnimationClass retrocederr = new AnimationClass();
         //Se desplaza hacia la derecha
-        retrocederr.jLabelXRight(-40, 10, 10, 5, retrocederLogin);
-        cerrarr.jLabelXRight(-40, 10, 10, 5, close);
+        retrocederr.jLabelXRight(-40, 10, 10, 5, retrocederLogin);//Desplaza el icono de retroceder a la derecha
+        cerrarr.jLabelXRight(-40, 10, 10, 5, close);//Desplaza el icono de cerrar a la derecha
 
         //Se desplaza hacia la izquierda
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
         
-        retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederLogin);
-        cerrarf.jLabelXLeft(10, -40, 10, 5, close);
+        retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederLogin);//Desplaza el icono de retroceder a la izquierda
+        cerrarf.jLabelXLeft(10, -40, 10, 5, close);//Desplaza el icono de cerrar a la izquierda
         
 
     }//GEN-LAST:event_jLabel9MouseClicked
 
+    /**
+     * Si se le da doble click al boton de cerrar, se cierra el programa
+     * @param evt 
+     */
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
 
         if(evt.getClickCount() == 2){
@@ -335,6 +379,10 @@ public class CreacionUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_closeMouseClicked
 
+    /**
+     * Si se le da doble click al boton de retroceder se devuelve al login
+     * @param evt 
+     */
     private void retrocederLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederLoginMouseClicked
 
         if(evt.getClickCount() == 2){
@@ -343,6 +391,10 @@ public class CreacionUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_retrocederLoginMouseClicked
 
+    /**
+     * Si se le da click al campo de usuario se pone vacio si tiene algo escrito
+     * @param evt 
+     */
     private void usuarioFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioFieldMouseClicked
 
         if(evt.getClickCount() == 1){
@@ -351,6 +403,10 @@ public class CreacionUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_usuarioFieldMouseClicked
 
+    /**
+     * Si se le da click al campo de la contraseña se pone vacio si tiene algo escrito
+     * @param evt 
+     */
     private void contraseñaUsuarioFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaUsuarioFieldMouseClicked
 
         if(evt.getClickCount() == 1){
@@ -359,11 +415,19 @@ public class CreacionUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_contraseñaUsuarioFieldMouseClicked
     
+    /**
+     * Recibe los parametros desde el login para ingresar a la respectivas funcionalidades
+     * dependiendo de que tipo de usuario sea. Busca los usuarios en el archivo de solicitantes
+     * @param Usuario
+     * @param Contraseña
+     * @param Tipousuario
+     * @return true, si lo encuentra
+     */
     public boolean dameUsuario(String Usuario, String Contraseña, String Tipousuario) {
         //Me da el usuario respectivo digitado desde el login, si esta creado se logea si no, no lo hace
-        try (BufferedReader leer = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader leer = new BufferedReader(new FileReader(file))) {//Lee el archivo
             String linea = leer.readLine();
-            while (leer != null) {
+            while (leer != null) {//Si el archivo tiene una linea extrae los datos y los compara con los enviados desde el login
                 String[] datos = linea.split(",");
 
                 String usuario = datos[0];
@@ -371,7 +435,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 String tipousuario = datos[2];
 
                 if (Usuario.equals(usuario) && Contraseña.equals(contraseña) && Tipousuario.equals(tipousuario)) {
-                    return true;
+                    return true;//Si encuentra en el archivo lo enviado desde el login accede como usuario o evaluador
                 }
 
                 linea = leer.readLine();

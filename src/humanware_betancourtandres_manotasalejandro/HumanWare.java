@@ -19,107 +19,161 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Este programa quiere dar trabajo a traves de ofertas, HumanWare es el main
+ * donde se pueden registrar los usuarios y evaluadores y acceder a las
+ * diferentes funcionalidades
  *
  * @author manotasja
+ * @version Final
+ *
  */
 public class HumanWare extends javax.swing.JFrame {
-    
+
     class Nodo {
-        
+
         String titulacion;
         String habilidad;
         int nivel;
         Nodo link;
     }
     Nodo ptr, ptr2;
-    
+
     File archivo;
     File Foto = null;
     Empresa empresa = new Empresa();
     CreacionUsuario usuario = new CreacionUsuario();
-    
+
+    /**
+     * El constructor donde se inicializaran las diferentes variables, se
+     * centran los frames y se cambia su icono, además no permitira que se copie
+     * y pegue con los diferentes metodos que se llaman
+     */
     public HumanWare() {
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
         agregarFrame.setLocationRelativeTo(null);
         solicitantes.setLocationRelativeTo(null);
-        
+
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         agregarFrame.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         solicitantes.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
-        
+
         DefaultListModel model = new DefaultListModel();
         listaTitulacion.setModel(model);
         ptr = null;
         ptr2 = null;
         model = new DefaultListModel();
         listaHabilidad.setModel(model);
-        
+
         noPasteNomField();
-        
+
         noPasteEmailField();
-        
+
         noPasteTelefonoField();
-        
+
         noPasteRetribucionField();
-        
+
         noPasteHabilidadField();
-        
+
         noPastePuntuacionField();
-        
+
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField del nombre
+     */
     public void noPasteNomField() {
         //Para que no copie y pegue caracteres invalidos en el campo del nombre del solicitante
-        InputMap map2 = nombreField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        InputMap map2 = nombreField.getInputMap(JTextField.WHEN_FOCUSED);//Cuando este focus el jTextField
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");//No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField del email
+     */
     public void noPasteEmailField() {
-        //Para que no copie y pegue caracteres invalidos en el campo del email del solicitante
-        InputMap map2 = emailField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        InputMap map2 = emailField.getInputMap(JTextField.WHEN_FOCUSED);//Cuando este focus el jTextField
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null"); //No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField del telefono
+     */
     public void noPasteTelefonoField() {
-        //Para que no copie y pegue caracteres invalidos en el campo del telefono del solicitante
-        InputMap map2 = telefonoField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        InputMap map2 = telefonoField.getInputMap(JTextField.WHEN_FOCUSED);//Cuando este focus el jTextField
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");//No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField de la retribución
+     */
     public void noPasteRetribucionField() {
-        //Para que no copie y pegue caracteres invalidos en el campo de retribución del solicitante
-        InputMap map2 = retribucionField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        InputMap map2 = retribucionField.getInputMap(JTextField.WHEN_FOCUSED);//Cuando este focus el jTextField
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");//No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField de la titulación
+     */
     public void noPasteTitulacionField() {
-        //Para que no copie y pegue caracteres invalidos en el campo de titulación del solicitante
-        InputMap map2 = titulacionField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        InputMap map2 = titulacionField.getInputMap(JTextField.WHEN_FOCUSED);//Cuando este focus el jTextField
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");//No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField de habilidad
+     */
     public void noPasteHabilidadField() {
-        //Para que no copie y pegue caracteres invalidos en el campo de habilidad del solicitante
         InputMap map2 = habilidadField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null"); //No permite CTRL+V
     }
-    
+
+    /**
+     * NoPasteNomField es un metodo que hace que no se copien y pegue caracteres
+     * no validos dentro del jTextField de puntuación
+     */
     public void noPastePuntuacionField() {
-        //Para que no copie y pegue caracteres invalidos en el campo de puntuación del solicitante
         InputMap map2 = puntuacionField.getInputMap(JTextField.WHEN_FOCUSED);
-        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null"); //No permite CTRL+V
     }
-    
+
+    /**
+     * Este metodo da a las demás clases el jTextField del usuario y permite que
+     * este pueda pueda a estar como si se hubiese reiniciado el programa
+     *
+     * @return el jTextfield para cuando se regrese al login el jTextField
+     * vuelva a estar como al principio
+     */
     public JTextField dameUsuarioTextField() {
         return usuarioField;
     }
-    
+
+    /**
+     ** Este metodo da a las demás clases el jPasswordField y permite que este
+     * pueda pueda a estar como si se hubiese reiniciado el programa
+     *
+     * @return el jPasswordField para cuando se regrese al login el
+     * jPasswordField este como en un principio
+     */
     public JTextField dameContraseñaField() {
         return contraseñaField;
     }
-    
+
+    /**
+     * Agrega titulaciones a la lista que esta en el frame, con valor máximo y
+     * mínimo de 2 titulaciones
+     *
+     * @param ptr
+     * @param tit
+     * @return ptr, para agregar otra titulación
+     */
     public Nodo Agregartit(Nodo ptr, String tit) {
         //Agrega titulaciones a la lista
         Nodo p = new Nodo();
@@ -135,7 +189,12 @@ public class HumanWare extends javax.swing.JFrame {
         }
         return ptr;
     }
-    
+
+    /**
+     * Muestra lo que se mando a traves del metodo de AgregarTit en la lista
+     *
+     * @param ptr
+     */
     public void MostrarLista(Nodo ptr) {
         //Muestra las titulaciones en la lista
         DefaultListModel model = (DefaultListModel) listaTitulacion.getModel();
@@ -146,25 +205,39 @@ public class HumanWare extends javax.swing.JFrame {
             p = p.link;
         }
     }
-    
+
+    /**
+     * Muestra en la lista lo que se mando a traves del metodo agregarHabilidad
+     *
+     * @param ptr2
+     */
     public void mostrarListaHabilidad(Nodo ptr2) {
 //Muestra las habilidades con su respectiva puntuación en la lista
         DefaultListModel modelo = (DefaultListModel) listaHabilidad.getModel();
         modelo.clear();
         Nodo p = ptr2;
         while (p != null) {
-            modelo.addElement(p.habilidad + "," + p.nivel);
+            modelo.addElement(p.habilidad + "," + p.nivel); //Agrega a la lista separadas por ","
             p = p.link;
         }
     }
-    
+
+    /**
+     * Agrega habilidades a la lista, con una mínimo y máximo de 3 habilidades
+     *
+     * @param ptr2
+     * @param habilidad
+     * @param nivel
+     * @return ptr2, para cuando se añada otra no quede la otra habilidad en el
+     * aire
+     */
     public Nodo agregarHabilidad(Nodo ptr2, String habilidad, int nivel) {
         //Agrega habilidades y una respectiva puntuación a la lista
         Nodo p = new Nodo();
-        
+
         p.habilidad = habilidad;
         p.nivel = nivel;
-        
+
         if (ptr == null) {
             ptr2 = p;
         } else {
@@ -176,7 +249,7 @@ public class HumanWare extends javax.swing.JFrame {
         }
         return ptr2;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -934,6 +1007,14 @@ public class HumanWare extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Si el usuario ya fue creado o ya existe, se puede ingresar siendo
+     * evaluador o siendo un usuario, los cuales tendrán diferentes
+     * funcionalidades
+     *
+     * @param evt
+     */
+
     private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
 //Accesibilidad 
         if (usuario.dameUsuario(usuarioField.getText(), contraseñaField.getText(), "Evaluador")) {
@@ -945,9 +1026,16 @@ public class HumanWare extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Usuario incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
 
     }//GEN-LAST:event_ingresarButtonActionPerformed
+
+    /**
+     * Reinicia el frame donde se agregaran los solicitantes con sus valores
+     * predeterminados
+     *
+     * @param evt
+     */
 
     private void agregarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTablaActionPerformed
 //Muestre la tabla y agregar solicitantes
@@ -960,12 +1048,20 @@ public class HumanWare extends javax.swing.JFrame {
         puntuacionField.setText("Ingrese la puntuación");
         ubicacionFotoField.setText("");
         Foto = null;
-        
+
         agregarFrame.setLocationRelativeTo(null);
         agregarFrame.setVisible(true);
-        
+
 
     }//GEN-LAST:event_agregarTablaActionPerformed
+
+    /**
+     * Si los campos no están vacios agregara un solicitante a la tabla, lo cual
+     * cerrara el frame y volvera a la lista de solicitantes para la próxima
+     * instrucción
+     *
+     * @param evt
+     */
 
     private void agregarSolicitanteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarSolicitanteBotonActionPerformed
         //Frame para agregar datos del solicitante
@@ -974,119 +1070,147 @@ public class HumanWare extends javax.swing.JFrame {
         long telefono = 0;
         long retribucion = 0;
         DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
-        
-        String nombre = nombreField.getText();
+
+        String nombre = nombreField.getText(); //Recibe el valor escrito en el campo del nombre
         if (nombreField.getText().isEmpty()) {
-            vacio = true;
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         }
-        
-        String email = emailField.getText();
+
+        String email = emailField.getText(); //Recibe el valor escrito en el campo del Email
         if (emailField.getText().isEmpty()) {
-            vacio = true;
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         }
-        
-        String jornada = (String) jornadaOpcionCombo.getSelectedItem();
-        
+
+        String jornada = (String) jornadaOpcionCombo.getSelectedItem(); //Recibe el valor seleccionado del comboBox para la 
+        //jornada
         if (telefonoField.getText().isEmpty()) {
-            vacio = true;
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         } else {
-            telefono = Long.parseLong(telefonoField.getText());
+            telefono = Long.parseLong(telefonoField.getText()); //Si el campo de telefono no esta vacio recibe el valor
         }
-        
-        Object foto = Foto;
+
+        Object foto = Foto;//A traves del FileChooser se selecciona la foto 
         if (Foto == null) {
-            vacio = true;
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         }
-        
+
         if (retribucionField.getText().isEmpty()) {
-            vacio = true;
+            vacio = true; //Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         } else {
-            retribucion = Long.parseLong(retribucionField.getText());
-        }
-        
-        List<String> titulacion = listaTitulacion.getSelectedValuesList();
+            retribucion = Long.parseLong(retribucionField.getText());//Recibe el valor del campo de retribución
+        }                                                            //Si este es diferente de vacio
+
+        List<String> titulacion = listaTitulacion.getSelectedValuesList();//Es necesario seleccionar las titulaciones para agregarlas a la lista
         if (titulacion.isEmpty() || titulacion.size() < 2) {
-            vacio = true;
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         }
-        List<String> habilidadPun = listaHabilidad.getSelectedValuesList();
-        if (habilidadPun.isEmpty() || habilidadPun.size() < 3) {
-            vacio = true;
+        List<String> habilidadPun = listaHabilidad.getSelectedValuesList();//Es necesario seleccionar las habilidades para agregarlas a la lista de habilidades
+        if (habilidadPun.isEmpty() || habilidadPun.size() < 3) { //Junto con su puntuacion
+            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
         }
-        
-        if (vacio || vacioFoto) {
+
+        if (vacio || vacioFoto) {//Aquí se comprueba que no falte la foto y que los campos no esten vacios
             JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             model.addRow(new Object[]{nombre, email, telefono, retribucion, foto, jornada, titulacion, habilidadPun});
-            agregarFrame.setVisible(false);
+            agregarFrame.setVisible(false);//Se agregan los datos a la tabla y se cierra el frame
         }
-        
+
 
     }//GEN-LAST:event_agregarSolicitanteBotonActionPerformed
+
+    /**
+     * Guarda en un archivo dentro de la misma carpeta del proyecto para que al
+     * momento de usarse en otro pc no ocurran problemas y también util para
+     * ubicar rapidamente el archivo
+     *
+     * @param evt
+     */
 
     private void guardarTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarTableActionPerformed
 //Creación del archivo de solicitantes 
         archivo = new File("./Solicitantes.txt");
-        
+
         DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
-        
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
-            
-            int filas = solicitantesTable.getRowCount();
-            
-            for (int i = 0; i < filas; i++) {
-                
-                Object nombre = model.getValueAt(i, 0);
-                Object email = model.getValueAt(i, 1);
-                Object telefono = model.getValueAt(i, 2);
-                Object retribucion = model.getValueAt(i, 3);
-                Object foto = model.getValueAt(i, 4);
-                Object jornada = model.getValueAt(i, 5);
-                Object titulacion = model.getValueAt(i, 6).toString();
-                Object habilidad = model.getValueAt(i, 7).toString();
-                
+
+            int filas = solicitantesTable.getRowCount(); //Toma el número de filas de ese momento
+
+            for (int i = 0; i < filas; i++) { //Las recorre
+
+                Object nombre = model.getValueAt(i, 0); //Toma el valor de la fila i y de la columna 1
+                Object email = model.getValueAt(i, 1);//Toma el valor de la fila i y de la columna 2
+                Object telefono = model.getValueAt(i, 2);//Toma el valor de la fila i y de la columna 3
+                Object retribucion = model.getValueAt(i, 3);//Toma el valor de la fila i y de la columna 4
+                Object foto = model.getValueAt(i, 4);//Toma el valor de la fila i y de la columna 5
+                Object jornada = model.getValueAt(i, 5);//Toma el valor de la fila i y de la columna 6
+                Object titulacion = model.getValueAt(i, 6).toString();//Toma el valor de la fila i y de la columna 7
+                Object habilidad = model.getValueAt(i, 7).toString();//Toma el valor de la fila i y de la columna 8
+
                 bw.write(nombre + "," + email + "," + telefono + "," + retribucion + ","
-                        + foto + "," + jornada + "," + titulacion + "," + habilidad);
-                
-                bw.newLine();
+                        + foto + "," + jornada + "," + titulacion + "," + habilidad); //Escribe los valores en el archivo
+
+                bw.newLine(); //Hace un salto de linea en el archivo
             }
-            
+
         } catch (Exception e) {
-            
+
         }
 
     }//GEN-LAST:event_guardarTableActionPerformed
 
+    /**
+     * Pone un filtro para que solo sean imagenes, se le aplica ese filtro al
+     * FileChooser para escoger la foto
+     *
+     * @param evt
+     */
+
     private void agregarFotoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarFotoBtnActionPerformed
         //Escoger una foto
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.jpg", "jpeg", "png", "jpg", "jpeg", "png");
-        
-        fileChooser.setFileFilter(filter);
-        
-        int op = fileChooser.showOpenDialog(null);
-        
-        if (op == JFileChooser.APPROVE_OPTION) {
-            
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.jpg", "jpeg", "png", "jpg", "jpeg", "png");//Solo permite archivos tipo jpg, jpeg, png, jpg, png
+
+        fileChooser.setFileFilter(filter);//Aplica el filtro al FileChooser
+
+        int op = fileChooser.showOpenDialog(null);//Escoge el valor del FileChooser
+
+        if (op == JFileChooser.APPROVE_OPTION) {//Si la opcion es aprovada entonces el objeto Foto recibe el lugar 
+
             Foto = fileChooser.getSelectedFile();//Lugar
-            ubicacionFotoField.setText(Foto.getAbsolutePath());
-            
+            ubicacionFotoField.setText(Foto.getAbsolutePath()); //Y se muestra desde donde se esta accediendo a esa foto
+
         }
 
     }//GEN-LAST:event_agregarFotoBtnActionPerformed
 
+    /**
+     * No permite que en el campo de telefono se puedan digitar letras, ni tenga
+     * una longitud maxima a 16
+     *
+     * @param evt
+     */
+
     private void telefonoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoFieldKeyTyped
 //Validar que el usuario digite solo números en el campo de telefono
-        char car = evt.getKeyChar();
-        String largo = telefonoField.getText();
-        
+        char car = evt.getKeyChar();//Obtiene el caracter del teclado
+        String largo = telefonoField.getText(); //Recibe el valor del campo del telefono
+
         if (car < '0' || car > '9') {
-            evt.consume();
+            evt.consume();//Si es diferente a un número lo borra
         }
-        
+
         if (largo.length() > 16) {
-            evt.consume();
+            evt.consume();//No permite una longitud mayor a 16 digitos
         }
 
     }//GEN-LAST:event_telefonoFieldKeyTyped
+
+    /**
+     * No permite que en el campo del nombre se puedan digitar numeros
+     *
+     * @param evt
+     */
 
     private void nombreFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFieldKeyTyped
 //Validar que el usuario digite solo letras en el campo de nombre
@@ -1104,22 +1228,35 @@ public class HumanWare extends javax.swing.JFrame {
                 && car != 'Ú'
                 && car != 'ñ'
                 && car != 'Ñ'
-                && (car != (char) KeyEvent.VK_SPACE)
-                && (car != (char) KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
+                && (car != (char) KeyEvent.VK_SPACE)//Permite la barra espaceadora
+                && (car != (char) KeyEvent.VK_BACK_SPACE)) {//Permite el retroceso
+            evt.consume();//Borra cualquier caracter diferente a los listados 
             JOptionPane.showMessageDialog(null, "Solo puede digitar letras", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_nombreFieldKeyTyped
 
+    /**
+     * No permite que en el campo de retribución se puedan digitar letras
+     *
+     * @param evt
+     */
+
     private void retribucionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_retribucionFieldKeyTyped
 //Validar que solo sean números en el campo de retribución
         char car = evt.getKeyChar();
-        
+
         if (car < '0' || car > '9') {
-            evt.consume();
+            evt.consume();//Borra cualquier caracter diferente a un número
         }
 
     }//GEN-LAST:event_retribucionFieldKeyTyped
+
+    /**
+     * No permite que en el campo de titulación se digiten caracteres diferentes
+     * a letras
+     *
+     * @param evt
+     */
 
     private void titulacionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_titulacionFieldKeyTyped
 //Validar lo que el usuario digite en el campo de titulación, que solo sean letras
@@ -1137,27 +1274,41 @@ public class HumanWare extends javax.swing.JFrame {
                 && car != 'Ú'
                 && car != 'ñ'
                 && car != 'Ñ'
-                && (car != (char) KeyEvent.VK_SPACE)
-                && (car != (char) KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
+                && (car != (char) KeyEvent.VK_SPACE)//Permite la barra espaceadora
+                && (car != (char) KeyEvent.VK_BACK_SPACE)) {//Permite el retroceso
+            evt.consume();//Borra cualquier caracterer diferente a los listados
             JOptionPane.showMessageDialog(null, "Solo puede digitar letras", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_titulacionFieldKeyTyped
 
+    /**
+     * No permite que en el campo de puntuación se digiten letras y no tenga una
+     * longitud mayor a 1 digito Solo se pueden digitar valores números entre 1
+     * y 5
+     *
+     * @param evt
+     */
+
     private void puntuacionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_puntuacionFieldKeyTyped
 //Hace que el usuario no digite letras en el campo de la puntuación y la longitud no sea mayor a 1
         char car = evt.getKeyChar();
         String largo = puntuacionField.getText();
-        
+
         if (car < '1' || car > '5') {
-            evt.consume();
+            evt.consume();//Si es un caracter ya sea letra o número diferente a 1, 2 ,3 ,4 o 5, lo borra
         }
         if (largo.length() > 0) {
-            evt.consume();
+            evt.consume();//Borra si tratas de escribir más de un digito
         }
 
     }//GEN-LAST:event_puntuacionFieldKeyTyped
+
+    /**
+     * No permite que en el campo de habilidad se digiten solo letras
+     *
+     * @param evt
+     */
 
     private void habilidadFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_habilidadFieldKeyTyped
 //Validar lo que teclea el usuario en habilidad
@@ -1175,65 +1326,94 @@ public class HumanWare extends javax.swing.JFrame {
                 && car != 'Ú'
                 && car != 'ñ'
                 && car != 'Ñ'
-                && (car != (char) KeyEvent.VK_SPACE)
-                && (car != (char) KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
+                && (car != (char) KeyEvent.VK_SPACE)//Permite la barra espaceadora
+                && (car != (char) KeyEvent.VK_BACK_SPACE)) { //Permite el retroceso
+            evt.consume();//Borra cualquier caracter diferente a los listados
             JOptionPane.showMessageDialog(null, "Solo puede digitar letras", "Error", JOptionPane.WARNING_MESSAGE);
         }
-        
+
 
     }//GEN-LAST:event_habilidadFieldKeyTyped
+
+    /**
+     * No permite que en el campo de email se digiten caracteres bastante
+     * especificos como !"#$%&/()=?¡¿', etc. Permite el @._-
+     *
+     * @param evt
+     */
 
     private void emailFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailFieldKeyTyped
 //Validar lo que teclea el usuario en su email
         String teclas = String.valueOf(evt.getKeyChar());
-        
+
         if (!(teclas.matches("[a-zA-Z0-9._@-]"))) {
-            evt.consume();
+            evt.consume();//Cualquier caracter diferentes entre el rango del condicional se borra
         }
 
     }//GEN-LAST:event_emailFieldKeyTyped
 
+    /**
+     * No permite que en el campo de usuario se pueden digitar letras y números
+     * ningun caracter especial
+     *
+     * @param evt
+     */
+
     private void usuarioFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioFieldKeyTyped
 //Validar lo que teclea el usuario al momento de ingresar
         String teclas = String.valueOf(evt.getKeyChar());
-        
+
         if (!(teclas.matches("[a-zA-Z0-9]"))) {
-            evt.consume();
+            evt.consume();//Cualquier caracter diferente entre los que esten en el rango del condicional se borra
         }
 
     }//GEN-LAST:event_usuarioFieldKeyTyped
 
+    /**
+     * No permite que en el campo de contraseña solo digiten letras y números No
+     * se permiten caracteres especiales
+     *
+     * @param evt
+     */
+
     private void contraseñaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñaFieldKeyTyped
 //Validar lo que teclea el usuario en su contraseña
         String teclas = String.valueOf(evt.getKeyChar());
-        
+
         if (!(teclas.matches("[a-zA-Z0-9]"))) {
-            evt.consume();
+            evt.consume();//Si el caracter digitado no este en el rango se borra
         }
 
     }//GEN-LAST:event_contraseñaFieldKeyTyped
 
+    /**
+     * Carga los datos qu esten guardados en el archivo de solicitantes Los
+     * busca a traves de una FileChooser al cual se le aplica un filtro para
+     * txt, text, y TEXT
+     *
+     * @param evt
+     */
+
     private void cargarDatosSolicitantesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarDatosSolicitantesBtnActionPerformed
 //Cargar los datos que estan en el archivo a la tabla para que se muestren
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.txt", "text", "TEXT", "txt");
-        
-        fileChooser.setFileFilter(filter);
-        int op = fileChooser.showOpenDialog(this);
-        
-        if (op == fileChooser.APPROVE_OPTION) {
-            archivo = fileChooser.getSelectedFile();
-            
-            nombreArchivoField.setText(archivo.getAbsolutePath());
-            
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.txt", "text", "TEXT", "txt");//Solo permite archivo text, txt y TEXT
+
+        fileChooser.setFileFilter(filter);//Se le aplica el filtro al fileChooser
+        int op = fileChooser.showOpenDialog(this);//Se le asigna el valor escogido en el fileChooser
+
+        if (op == fileChooser.APPROVE_OPTION) {//Si el archivo escogio es valido entonces 
+            archivo = fileChooser.getSelectedFile();//El archivo recibe el lugar del cual se escogio el archivo
+
+            nombreArchivoField.setText(archivo.getAbsolutePath());//Se muestra desde donde se esta accediendo
+
             DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
-            
+
             try (Scanner leer = new Scanner(archivo)) {
-                while (leer.hasNextLine()) {
+                while (leer.hasNextLine()) {//Mientras que no haya EOF del archivo seguira leyendo los datos
                     String linea = leer.nextLine();
-                    
-                    String[] datos = linea.split(",");
-                    
+
+                    String[] datos = linea.split(",");//Con el .Split, se cargan los datos, puesto que en el archivo
+                    //Estan separados por comas
                     String nombre = datos[0];
                     String email = datos[1];
                     long telefono = Long.parseLong(datos[2]);
@@ -1242,51 +1422,71 @@ public class HumanWare extends javax.swing.JFrame {
                     String jornada = datos[5];
                     String titulacion = (datos[6] + datos[7]);
                     String habilidad = (datos[8] + datos[9] + datos[10] + datos[11] + datos[12] + datos[13]);
-                    
+
                     model.addRow(new Object[]{nombre, email, telefono, retribucion, foto, jornada, titulacion,
-                        habilidad});
-                    
+                        habilidad});//Se añaden los respectivos datos conforme a la tabla, en su respectivo orden
+
                 }
-                
+
             } catch (Exception e) {
-                
+
             }
         }
-        
+
 
     }//GEN-LAST:event_cargarDatosSolicitantesBtnActionPerformed
+
+    /**
+     * Se selecciona la fila que se quiere eliminar y luego se pulsa el boton y
+     * se elimina
+     *
+     * @param evt
+     */
 
     private void eliminarSolicitanteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarSolicitanteBtnActionPerformed
 //Borrar un solicitante
         DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
-        
-        int fila = solicitantesTable.getSelectedRow();
-        
-        model.removeRow(fila);
+
+        int fila = solicitantesTable.getSelectedRow(); //Obtiene la fila seleccionada
+
+        model.removeRow(fila);//Elimina la fila seleccionada
 
     }//GEN-LAST:event_eliminarSolicitanteBtnActionPerformed
+
+    /**
+     * Cuando se pulse el boton muestra el frame para crear un usuario
+     *
+     * @param evt
+     */
 
     private void crearUsuarioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioBtnActionPerformed
 //Muestra el frame para crear un usuario
         CreacionUsuario usuario = new CreacionUsuario();
-        
+
         usuario.dameCreacionUsuarioField().setText("Ingrese el nombre de usuario");
         usuario.dameCreacionContraseñaField().setText("Ingrese la contraseña de usuario");
         new CreacionUsuario().setVisible(true);
-        
+
 
     }//GEN-LAST:event_crearUsuarioBtnActionPerformed
 
+    /**
+     * Ingresa las titulaciones a la lista con los valores si el campo no esta
+     * vacio Y solo se permite una longitud máxima de 2 titulaciones
+     *
+     * @param evt
+     */
+
     private void ingresarBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtn1ActionPerformed
         //Sirve para agregar titulaciones a la lista
-        
+
         DefaultListModel model = (DefaultListModel) listaTitulacion.getModel();
-        
+
         if (model.getSize() < 2) {
-            if (!titulacionField.getText().isEmpty()) {
-                String titulacion = titulacionField.getText();
-                ptr = Agregartit(ptr, titulacion);
-                MostrarLista(ptr);
+            if (!titulacionField.getText().isEmpty()) { //Si el campo de las titulaciones no esta vacio agrega una titulacion
+                String titulacion = titulacionField.getText();//Obtiene la titulacion del campo 
+                ptr = Agregartit(ptr, titulacion);//LLama a la función AgregarTit
+                MostrarLista(ptr);//Llama a la función MostrarLista
             } else {
                 JOptionPane.showMessageDialog(null, "No ha incluido ninguna titulacion", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1296,16 +1496,21 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ingresarBtn1ActionPerformed
 
+    /**
+     * Agrega habilidades junto con su puntuación a la lista
+     *
+     * @param evt
+     */
     private void ingresarBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtn2ActionPerformed
 //Sirve para agregar habilidades y una respectiva puntuación a la lista
         DefaultListModel model = (DefaultListModel) listaHabilidad.getModel();
-        
-        if (model.getSize() < 3) {
-            if (!habilidadField.getText().isEmpty() && !puntuacionField.getText().isEmpty()) {
-                String habilidad = habilidadField.getText();
-                int nivel = Integer.parseInt(puntuacionField.getText());
-                ptr2 = agregarHabilidad(ptr2, habilidad, nivel);
-                mostrarListaHabilidad(ptr2);
+
+        if (model.getSize() < 3) {//La lista solo puede tener un valor minimo de 3 habilidades
+            if (!habilidadField.getText().isEmpty() && !puntuacionField.getText().isEmpty()) {//Si los campos no estan vacios agrega habilidad y puntuacion
+                String habilidad = habilidadField.getText();//Obtiene la habilidad
+                int nivel = Integer.parseInt(puntuacionField.getText());//Obtiene el nivel de la habilidad
+                ptr2 = agregarHabilidad(ptr2, habilidad, nivel);//Llama al metodo agregarHabilidad
+                mostrarListaHabilidad(ptr2);//LLama al metodo mostrarHabilidad
             } else {
                 JOptionPane.showMessageDialog(null, "Complete los campos", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1314,6 +1519,12 @@ public class HumanWare extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_ingresarBtn2ActionPerformed
+
+    /**
+     * Desplaza los iconos para cerrar el programa
+     *
+     * @param evt
+     */
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 //Desde el login
@@ -1324,17 +1535,29 @@ public class HumanWare extends javax.swing.JFrame {
         //Se desplaza hacia la izquierda
         AnimationClass cerrarf = new AnimationClass();
         cerrarf.jLabelXLeft(10, -30, 10, 5, cerrarFrame);
-        
+
 
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    /**
+     * Cuando se da doble click al icono de cerrar el programa se cierra
+     *
+     * @param evt
+     */
     private void cerrarFrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarFrameMouseClicked
 //Cierra el programa una vez se doble clickea al icono de cerrar 
         if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarFrameMouseClicked
+
+    /**
+     * En el frame de solicitantes desplaza los iconos para retroceder y cerrar
+     * cuando se clickea
+     *
+     * @param evt
+     */
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
 //Desde el frame de soliciantes
@@ -1347,12 +1570,19 @@ public class HumanWare extends javax.swing.JFrame {
         //Se desplaza hacia la izquierda
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass retrocederr = new AnimationClass();
-        
+
         retrocederr.jLabelXLeft(10, -30, 10, 5, retrocederFrame);
         cerrarf.jLabelXLeft(10, -30, 10, 5, cerrarF);
-        
+
 
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    /**
+     * Cuando se doble clickea el icono para retroceder vuelve al login puesto
+     * que se esta en el frame de solicitantes
+     *
+     * @param evt
+     */
 
     private void retrocederFrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederFrameMouseClicked
 //Retrocede al frame inicial 
@@ -1362,25 +1592,40 @@ public class HumanWare extends javax.swing.JFrame {
             this.setVisible(true);
             solicitantes.dispose();
         }
-        
+
     }//GEN-LAST:event_retrocederFrameMouseClicked
+
+    /**
+     * Cuando se da doble click se cierra todo el programa
+     * @param evt
+     */
 
     private void cerrarFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarFMouseClicked
 //Cierra el programa
         if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarFMouseClicked
 
+    /**
+     * Cuando se le da click al campo del nombre se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void nombreFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del nombre
         if (evt.getClickCount() == 1) {
             nombreField.setText("");
         }
-        
+
     }//GEN-LAST:event_nombreFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo del email se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void emailFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del email
         if (evt.getClickCount() == 1) {
@@ -1389,38 +1634,63 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_emailFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo del telefono se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void telefonoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telefonoFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del telefono
         if (evt.getClickCount() == 1) {
             telefonoField.setText("");
         }
-        
+
     }//GEN-LAST:event_telefonoFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo de la retribución se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void retribucionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retribucionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la retribución
         if (evt.getClickCount() == 1) {
             retribucionField.setText("");
         }
-        
+
     }//GEN-LAST:event_retribucionFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo de la titulación se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void titulacionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titulacionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la titulación
         if (evt.getClickCount() == 1) {
             titulacionField.setText("");
         }
-        
+
     }//GEN-LAST:event_titulacionFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo de la habilidad se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void habilidadFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilidadFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la habilidad
         if (evt.getClickCount() == 1) {
             habilidadField.setText("");
         }
-        
+
     }//GEN-LAST:event_habilidadFieldMouseClicked
 
+     /**
+     * Cuando se le da click al campo de la puntuacion se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void puntuacionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puntuacionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la puntuación
         if (evt.getClickCount() == 1) {
@@ -1429,6 +1699,12 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_puntuacionFieldMouseClicked
 
+    /**
+     *En el frame para agregar solicitantes a la tabla, desplaza los iconos cuando se la click al menu en la
+     * esquina superior izquierda
+     * @param evt 
+     */
+    
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
 
 //Desde el frame para agregar solicitantes
@@ -1436,7 +1712,7 @@ public class HumanWare extends javax.swing.JFrame {
         AnimationClass cambior = new AnimationClass();
         AnimationClass retroceder = new AnimationClass();
         //Se desplaza hacia la derecha
-        retroceder.jLabelXRight(-30, 10, 10, 5, devolverseFrame);
+        retroceder.jLabelXRight(-30, 10, 10, 5, devolverseFrame); 
         cambior.jLabelXRight(-30, 10, 10, 5, usuarioCambio);
         cerrar.jLabelXRight(-30, 10, 10, 5, cerrarTodo);
 
@@ -1444,30 +1720,45 @@ public class HumanWare extends javax.swing.JFrame {
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambio = new AnimationClass();
         AnimationClass retrocederr = new AnimationClass();
-        
+
         retrocederr.jLabelXLeft(10, -30, 10, 5, devolverseFrame);
         cambio.jLabelXLeft(10, -30, 10, 5, usuarioCambio);
         cerrarf.jLabelXLeft(10, -30, 10, 5, cerrarTodo);
-        
+
 
     }//GEN-LAST:event_jLabel16MouseClicked
 
+    /**
+     * Cuando se le da click al campo del usuario se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void usuarioFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioFieldMouseClicked
 //Pone el campo vacio al momento de digitar el usuario
         if (evt.getClickCount() == 1) {
             usuarioField.setText("");
         }
-        
+
     }//GEN-LAST:event_usuarioFieldMouseClicked
 
+    /**
+     * Cuando se le da click al campo de la contraseña se va a vacio para empezar a llenarlo, si tiene algo escrito
+     * @param evt 
+     */
+    
     private void contraseñaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaFieldMouseClicked
 //Pone el campo vacio al momento de digitar la contraseña 
         if (evt.getClickCount() == 1) {
             contraseñaField.setText("");
         }
-        
+
     }//GEN-LAST:event_contraseñaFieldMouseClicked
 
+    /**
+     * Cuando se la doble click vuelve al frame del login para cambiar de usuario
+     * @param evt 
+     */
+    
     private void usuarioCambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioCambioMouseClicked
 //Cambia inmediatamente al frame inicial
         if (evt.getClickCount() == 2) {
@@ -1480,13 +1771,25 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuarioCambioMouseClicked
 
+    /**
+     *Cierra el programa una vez se le da doble click
+     * @param evt
+     */
     private void cerrarTodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarTodoMouseClicked
 //Cierra todo el programa
         if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarTodoMouseClicked
+
+    /**
+     * Cuando se da doble click cierra la inscripción del solicitante y se
+     * devuelve al frame donde estan todos los solicitantes ya inscritos en ese
+     * momento
+     *
+     * @param evt
+     */
 
     private void devolverseFrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolverseFrameMouseClicked
 //Devuelve al frame donde estan todos los soliciantes inscritos
@@ -1494,9 +1797,9 @@ public class HumanWare extends javax.swing.JFrame {
             agregarFrame.dispose();
             solicitantes.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_devolverseFrameMouseClicked
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1508,21 +1811,21 @@ public class HumanWare extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(HumanWare.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(HumanWare.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(HumanWare.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(HumanWare.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
