@@ -319,7 +319,8 @@ public class Empresa extends javax.swing.JFrame {
         cerrar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        agregarEmpresaFrame.setMinimumSize(new java.awt.Dimension(627, 394));
+        agregarEmpresaFrame.setMaximumSize(new java.awt.Dimension(630, 399));
+        agregarEmpresaFrame.setMinimumSize(new java.awt.Dimension(630, 399));
         agregarEmpresaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -336,7 +337,7 @@ public class Empresa extends javax.swing.JFrame {
 
         jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        agregarEmpresaFrame.getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 230, 30));
+        agregarEmpresaFrame.getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 220, 30));
 
         empresaField.setBackground(new java.awt.Color(255, 255, 255));
         empresaField.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
@@ -451,8 +452,8 @@ public class Empresa extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         agregarEmpresaFrame.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 420, 400));
 
-        ofertaEmpresaTrabajo.setMaximumSize(new java.awt.Dimension(680, 402));
-        ofertaEmpresaTrabajo.setMinimumSize(new java.awt.Dimension(680, 402));
+        ofertaEmpresaTrabajo.setMaximumSize(new java.awt.Dimension(720, 430));
+        ofertaEmpresaTrabajo.setMinimumSize(new java.awt.Dimension(720, 430));
         ofertaEmpresaTrabajo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -638,8 +639,8 @@ public class Empresa extends javax.swing.JFrame {
 
         ofertaEmpresaTrabajo.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
 
-        ingresarOferta.setMaximumSize(new java.awt.Dimension(731, 528));
-        ingresarOferta.setMinimumSize(new java.awt.Dimension(731, 528));
+        ingresarOferta.setMaximumSize(new java.awt.Dimension(729, 529));
+        ingresarOferta.setMinimumSize(new java.awt.Dimension(729, 529));
         ingresarOferta.getContentPane().setLayout(null);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -999,8 +1000,8 @@ public class Empresa extends javax.swing.JFrame {
         ingresarOferta.getContentPane().add(jPanel6);
         jPanel6.setBounds(210, 0, 520, 530);
 
-        IdoneosFrame.setMaximumSize(new java.awt.Dimension(728, 368));
-        IdoneosFrame.setMinimumSize(new java.awt.Dimension(728, 368));
+        IdoneosFrame.setMaximumSize(new java.awt.Dimension(728, 370));
+        IdoneosFrame.setMinimumSize(new java.awt.Dimension(728, 370));
         IdoneosFrame.getContentPane().setLayout(null);
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));

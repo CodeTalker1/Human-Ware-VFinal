@@ -82,7 +82,8 @@ public class CreacionUsuario extends javax.swing.JFrame {
         tipoUsuarioBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(583, 387));
+        setMaximumSize(new java.awt.Dimension(590, 389));
+        setMinimumSize(new java.awt.Dimension(590, 389));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));

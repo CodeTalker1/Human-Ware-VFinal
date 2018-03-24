@@ -4,8 +4,11 @@
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="agregarEmpresaFrame">
       <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[630, 399]"/>
+        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[627, 394]"/>
+          <Dimension value="[630, 399]"/>
         </Property>
       </Properties>
 
@@ -62,7 +65,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="80" width="230" height="30"/>
+              <AbsoluteConstraints x="400" y="80" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -332,10 +335,10 @@
     <Container class="javax.swing.JFrame" name="ofertaEmpresaTrabajo">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[680, 402]"/>
+          <Dimension value="[720, 430]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[680, 402]"/>
+          <Dimension value="[720, 430]"/>
         </Property>
       </Properties>
 
@@ -815,10 +818,10 @@
     <Container class="javax.swing.JFrame" name="ingresarOferta">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[731, 528]"/>
+          <Dimension value="[729, 529]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[731, 528]"/>
+          <Dimension value="[729, 529]"/>
         </Property>
       </Properties>
 
@@ -1650,10 +1653,10 @@
     <Container class="javax.swing.JFrame" name="IdoneosFrame">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[728, 368]"/>
+          <Dimension value="[728, 370]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[728, 368]"/>
+          <Dimension value="[728, 370]"/>
         </Property>
       </Properties>
 

@@ -265,7 +265,8 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         cerrarFrame = new javax.swing.JLabel();
 
-        solicitantes.setMinimumSize(new java.awt.Dimension(760, 423));
+        solicitantes.setMaximumSize(new java.awt.Dimension(757, 419));
+        solicitantes.setMinimumSize(new java.awt.Dimension(757, 419));
         solicitantes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -428,7 +429,8 @@ public class HumanWare extends javax.swing.JFrame {
 
         solicitantes.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 420));
 
-        agregarFrame.setMinimumSize(new java.awt.Dimension(742, 530));
+        agregarFrame.setMaximumSize(new java.awt.Dimension(740, 528));
+        agregarFrame.setMinimumSize(new java.awt.Dimension(740, 528));
         agregarFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 51));
@@ -498,7 +500,7 @@ public class HumanWare extends javax.swing.JFrame {
         });
         jPanel4.add(devolverseFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 30, 40, 30));
 
-        agregarFrame.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 550));
+        agregarFrame.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 530));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -766,19 +768,19 @@ public class HumanWare extends javax.swing.JFrame {
 
         jSeparator12.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 110, 10));
+        jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 170, 10));
 
         jSeparator13.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 110, 10));
+        jPanel5.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 170, 10));
 
         jSeparator14.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 110, 10));
+        jPanel5.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 10));
 
         jSeparator15.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 120, 10));
+        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 170, 10));
 
         jSeparator16.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator16.setForeground(new java.awt.Color(0, 0, 0));
@@ -988,7 +990,7 @@ public class HumanWare extends javax.swing.JFrame {
         if (telefonoField.getText().isEmpty()) {
             vacio = true;
         } else {
-            telefono = Integer.parseInt(telefonoField.getText());
+            telefono = Long.parseLong(telefonoField.getText());
         }
         
         Object foto = Foto;
