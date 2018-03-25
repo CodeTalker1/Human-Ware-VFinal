@@ -2,4 +2,4 @@ Steve,Jobs,Evaluador
 Bill,Gates,Usuario
 Alejandro,123,Evaluador
 Beta,123,Evaluador
-A,A,EvaluadorAlejo,xd123,Usuario
+A,A,Evaluador

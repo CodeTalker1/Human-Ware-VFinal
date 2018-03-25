@@ -1868,7 +1868,7 @@ public class Empresa extends javax.swing.JFrame {
                     String[] datos = linea.split(",");
                     String[] datos1 = ofertasTable.getValueAt(ofertasTable.getSelectedRow(), 5).toString().split(" ");
 
-                    if (datos[6].equalsIgnoreCase(datos1[0]) || datos[6].equalsIgnoreCase(datos1[2])//Compara a partir de las 
+                    if (datos[6].equalsIgnoreCase(datos1[0]) || datos[6].equalsIgnoreCase(datos1[1])//Compara a partir de las 
                             || datos[7].equalsIgnoreCase(datos1[0]) || datos[7].equalsIgnoreCase(datos1[1])) {//Titulaciones
                         String nombre = datos[0];
                         String email = datos[1];

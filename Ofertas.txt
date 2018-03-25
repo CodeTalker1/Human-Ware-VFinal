@@ -1,1 +1,1 @@
-957,Electricista,Electricista,500000-600000,Completa,[Tecnico, Electricista],[null,0, null,0, Costeñol,5]
+﻿957,Electricista,Electricista,500000-600000,Completa,[Tecnico, Electricista],[Portugues,5,Tailandes,3, Costeñol,5]
