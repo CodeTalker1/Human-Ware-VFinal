@@ -346,8 +346,9 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         cerrarFrame = new javax.swing.JLabel();
 
-        solicitantes.setMaximumSize(new java.awt.Dimension(757, 419));
-        solicitantes.setMinimumSize(new java.awt.Dimension(757, 419));
+        solicitantes.setMaximumSize(new java.awt.Dimension(759, 420));
+        solicitantes.setMinimumSize(new java.awt.Dimension(759, 420));
+        solicitantes.setPreferredSize(new java.awt.Dimension(759, 420));
         solicitantes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -510,8 +511,9 @@ public class HumanWare extends javax.swing.JFrame {
 
         solicitantes.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 420));
 
-        agregarFrame.setMaximumSize(new java.awt.Dimension(740, 528));
-        agregarFrame.setMinimumSize(new java.awt.Dimension(740, 528));
+        agregarFrame.setMaximumSize(new java.awt.Dimension(738, 528));
+        agregarFrame.setMinimumSize(new java.awt.Dimension(738, 528));
+        agregarFrame.setPreferredSize(new java.awt.Dimension(738, 528));
         agregarFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 51));
@@ -916,7 +918,7 @@ public class HumanWare extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(756, 425));
         setMinimumSize(new java.awt.Dimension(756, 425));
-        setPreferredSize(new java.awt.Dimension(501, 450));
+        setPreferredSize(new java.awt.Dimension(756, 425));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));

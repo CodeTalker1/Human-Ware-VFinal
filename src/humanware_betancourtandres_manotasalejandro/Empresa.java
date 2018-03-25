@@ -294,8 +294,6 @@ public class Empresa extends javax.swing.JFrame {
         FileChooser = new javax.swing.JFileChooser();
         ofertaEmpresaTrabajo = new javax.swing.JFrame();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ofertasTable = new javax.swing.JTable();
         crearOfertaBtn = new javax.swing.JButton();
         eliminarOfertaBtn = new javax.swing.JButton();
         guardarOfertaBtn = new javax.swing.JButton();
@@ -315,6 +313,8 @@ public class Empresa extends javax.swing.JFrame {
         cambiarSolicitantes = new javax.swing.JLabel();
         cerrarSistema = new javax.swing.JLabel();
         devolverEmpresas = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ofertasTable = new javax.swing.JTable();
         ingresarOferta = new javax.swing.JFrame();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -392,6 +392,7 @@ public class Empresa extends javax.swing.JFrame {
         cerrar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
+        agregarEmpresaFrame.setMaximumSize(new java.awt.Dimension(630, 399));
         agregarEmpresaFrame.setMinimumSize(new java.awt.Dimension(630, 399));
         agregarEmpresaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -524,7 +525,9 @@ public class Empresa extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         agregarEmpresaFrame.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 420, 400));
 
+        ofertaEmpresaTrabajo.setMaximumSize(new java.awt.Dimension(717, 427));
         ofertaEmpresaTrabajo.setMinimumSize(new java.awt.Dimension(720, 430));
+        ofertaEmpresaTrabajo.setPreferredSize(new java.awt.Dimension(717, 427));
         ofertaEmpresaTrabajo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -532,39 +535,6 @@ public class Empresa extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Ofertas de trabajo de la empresa");
         ofertaEmpresaTrabajo.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 230, 33));
-
-        ofertasTable.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
-        ofertasTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Cargo", "Descripcion", "Rango salarial", "Jornada", "Titulaciones", "Requerimientos"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        ofertasTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ofertasTableMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(ofertasTable);
-
-        ofertaEmpresaTrabajo.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 660, 106));
 
         crearOfertaBtn.setBackground(new java.awt.Color(255, 255, 255));
         crearOfertaBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -707,6 +677,39 @@ public class Empresa extends javax.swing.JFrame {
             }
         });
         jPanel4.add(devolverEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 30, 30, 30));
+
+        ofertasTable.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        ofertasTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Cargo", "Descripcion", "Rango salarial", "Jornada", "Titulaciones", "Requerimientos"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ofertasTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ofertasTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(ofertasTable);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 660, 106));
 
         ofertaEmpresaTrabajo.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
 
@@ -1158,7 +1161,7 @@ public class Empresa extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, true, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
