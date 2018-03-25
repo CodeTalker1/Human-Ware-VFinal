@@ -31,157 +31,161 @@ import javax.swing.table.DefaultTableModel;
  * @version Final
  */
 public class Empresa extends javax.swing.JFrame {
-    
+
     class Nodo {
-        
+
         String titulacion;
         String habilidad;
         int nivel;
         Nodo link;
     }
-    
+
     Nodo ptr, ptr2;
-    
+
     File archivo = new File("./Empresa.txt");
     File file = new File("./Ofertas.txt");
     File solicitante = new File("./Solicitantes.txt");
-    
+
     /**
-     * Se centran los frames en la pantalla y se cambian los iconos
-     * Se llaman diferentes metodos para evitar que se introduzcan caracteres no validos en los campos
+     * Se centran los frames en la pantalla y se cambian los iconos Se llaman
+     * diferentes metodos para evitar que se introduzcan caracteres no validos
+     * en los campos
      */
     public Empresa() {
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
         agregarEmpresaFrame.setLocationRelativeTo(null);
         ofertaEmpresaTrabajo.setLocationRelativeTo(null);
         ingresarOferta.setLocationRelativeTo(null);
         IdoneosFrame.setLocationRelativeTo(null);
-        
+
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         agregarEmpresaFrame.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         ofertaEmpresaTrabajo.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         ingresarOferta.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
         IdoneosFrame.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
-        
+
         DefaultListModel model = new DefaultListModel();
         DefaultListModel modelo = new DefaultListModel();
         titulacionesRequerida.setModel(model);
         listaRequerimientos.setModel(modelo);
         ptr = null;
         ptr2 = null;
-        
+
         noPasteEmpresaNombreField();
-        
+
         noPasteEmpresaTelefonoField();
-        
+
         noPasteNombrePuestoField();
-        
+
         noPasteDescripcionPuestoField();
-        
+
         noPasteSalarioInicialField();
-        
+
         noPasteSalarioFinalField();
-        
+
         noPasteTitulacionRequeridaField();
-        
+
         noPasteHabilidadRequeridaField();
-        
+
         noPasteNivelRequeridoField();
-        
+
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo nombre de la empresa
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo nombre de la empresa
      */
     public void noPasteEmpresaNombreField() {
         //Para que no copie y pegue caracteres invalidos en el campo del nombre de la empresa
         InputMap map2 = empresaField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo del telefono de la empresa
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo del telefono de la empresa
      */
     public void noPasteEmpresaTelefonoField() {
         //Para que no copie y pegue caracteres invalidos en el campo del telefono de la empresa
         InputMap map2 = telefonoEmpresaField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo del nombre del puesto 
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo del nombre del puesto para las ofertas
      */
     public void noPasteNombrePuestoField() {
         //Para que no copie y pegue caracteres invalidos en el campo del nombre del puesto
         InputMap map2 = nombrePuestoField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo de descripcion 
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo de descripcion para las ofertas
      */
     public void noPasteDescripcionPuestoField() {
         //Para que no copie y pegue caracteres invalidos en el campo de descripción del puesto
         InputMap map2 = descripcionPuestoField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo de salario incial 
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo de salario incial para las ofertas
      */
     public void noPasteSalarioInicialField() {
         //Para que no copie y pegue caracteres invalidos en el campo de salario inicial
         InputMap map2 = salarioInicialField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo de salario final
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo de salario final para las ofertas
      */
     public void noPasteSalarioFinalField() {
         //Para que no copie y pegue caracteres invalidos en el campo de salario final
         InputMap map2 = salarioFinalField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo de titulacion requerida
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo de titulacion requerida para las ofertas
      */
     public void noPasteTitulacionRequeridaField() {
         //Para que no copie y pegue caracteres invalidos en el campo de titulación requerida 
         InputMap map2 = titulacionRequeridaField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo de la habilidad
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo de la habilidad para las ofertas
      */
     public void noPasteHabilidadRequeridaField() {
         //Para que no copie y pegue caracteres invalidos en el campo de habilidad
         InputMap map2 = habilidadRequeridaField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
-     * En este metodo no permite que se copie y pegue caracteres no validos en el campo del nivel de la habilidad
-     * para las ofertas
+     * En este metodo no permite que se copie y pegue caracteres no validos en
+     * el campo del nivel de la habilidad para las ofertas
      */
     public void noPasteNivelRequeridoField() {
         //Para que no copie y pegue caracteres invalidos en el campo del nivel requerido
         InputMap map2 = nivelRequeridoField.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
     }
-    
+
     /**
      * En este metodo agrega titulaciones en la lista
+     *
      * @param ptr
      * @param tit
      * @return ptr
@@ -201,11 +205,13 @@ public class Empresa extends javax.swing.JFrame {
         }
         return ptr;
     }
-    
+
     /**
-     * En este metodo monta las titulaciones escritas en el campo luego de pasar por el metodo AgregarTit
-     * @param ptr 
-     */    
+     * En este metodo monta las titulaciones escritas en el campo luego de pasar
+     * por el metodo AgregarTit
+     *
+     * @param ptr
+     */
     public void mostrarListaTit(Nodo ptr) {
         //Muestra en la lista las titulaciónes a añadir a la tabla
         DefaultListModel model = (DefaultListModel) titulacionesRequerida.getModel();
@@ -216,10 +222,12 @@ public class Empresa extends javax.swing.JFrame {
             a = a.link;
         }
     }
-    
+
     /**
-     * Muestra las habilidades en la lista luego llamar al metodo agregarHabilidad
-     * @param ptr2 
+     * Muestra las habilidades en la lista luego llamar al metodo
+     * agregarHabilidad
+     *
+     * @param ptr2
      */
     public void mostrarListaHabilidad(Nodo ptr2) {
 //Muestra la habilidad y su respectiva puntuación en la lista        
@@ -232,9 +240,10 @@ public class Empresa extends javax.swing.JFrame {
             ha = ha.link;
         }
     }
-    
+
     /**
      * Agrega habilidades a la lista
+     *
      * @param ptr2
      * @param habilidad
      * @param nivel
@@ -243,10 +252,10 @@ public class Empresa extends javax.swing.JFrame {
     public Nodo agregarHabilidad(Nodo ptr2, String habilidad, int nivel) {
         //Añade una habilidad con su respectiva puntuación a la lista
         Nodo ha = new Nodo();
-        
+
         ha.habilidad = habilidad;
         ha.nivel = nivel;
-        
+
         if (ptr2 == null) {
             ptr2 = ha;
         } else {
@@ -260,7 +269,7 @@ public class Empresa extends javax.swing.JFrame {
         }
         return ptr2;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -318,7 +327,6 @@ public class Empresa extends javax.swing.JFrame {
         jornadaComboBox = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         titulacionRequeridaField = new javax.swing.JTextField();
-        añadirListaTitulacionesBtn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         titulacionesRequerida = new javax.swing.JList<>();
         jLabel15 = new javax.swing.JLabel();
@@ -329,7 +337,6 @@ public class Empresa extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         listaRequerimientos = new javax.swing.JList<>();
         añadirOfertaBtn = new javax.swing.JButton();
-        añadirHabilidad = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         descripcionPuestoField = new javax.swing.JTextArea();
         jSeparator15 = new javax.swing.JSeparator();
@@ -341,8 +348,6 @@ public class Empresa extends javax.swing.JFrame {
         jSeparator21 = new javax.swing.JSeparator();
         jSeparator22 = new javax.swing.JSeparator();
         jSeparator23 = new javax.swing.JSeparator();
-        jSeparator24 = new javax.swing.JSeparator();
-        jSeparator25 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         retrocederOfertas = new javax.swing.JLabel();
@@ -350,6 +355,14 @@ public class Empresa extends javax.swing.JFrame {
         CerrarFrames = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        eliminarTitulacionOfertaBtn = new javax.swing.JButton();
+        añadirListaTitulacionesBtn = new javax.swing.JButton();
+        jSeparator24 = new javax.swing.JSeparator();
+        eliminarHabilidadPunOfertaBtn = new javax.swing.JButton();
+        añadirHabilidad = new javax.swing.JButton();
+        jSeparator25 = new javax.swing.JSeparator();
+        jSeparator26 = new javax.swing.JSeparator();
+        jSeparator27 = new javax.swing.JSeparator();
         IdoneosFrame = new javax.swing.JFrame();
         jPanel7 = new javax.swing.JPanel();
         retrocederListaOfertas = new javax.swing.JLabel();
@@ -512,7 +525,6 @@ public class Empresa extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         agregarEmpresaFrame.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 420, 400));
 
-        ofertaEmpresaTrabajo.setMaximumSize(new java.awt.Dimension(720, 430));
         ofertaEmpresaTrabajo.setMinimumSize(new java.awt.Dimension(720, 430));
         ofertaEmpresaTrabajo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -699,8 +711,8 @@ public class Empresa extends javax.swing.JFrame {
 
         ofertaEmpresaTrabajo.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
 
-        ingresarOferta.setMaximumSize(new java.awt.Dimension(729, 529));
-        ingresarOferta.setMinimumSize(new java.awt.Dimension(729, 529));
+        ingresarOferta.setMaximumSize(new java.awt.Dimension(767, 478));
+        ingresarOferta.setMinimumSize(new java.awt.Dimension(767, 478));
         ingresarOferta.getContentPane().setLayout(null);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -792,6 +804,7 @@ public class Empresa extends javax.swing.JFrame {
         ingresarOferta.getContentPane().add(jLabel13);
         jLabel13.setBounds(330, 150, 60, 19);
 
+        jornadaComboBox.setBackground(new java.awt.Color(255, 255, 255));
         jornadaComboBox.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         jornadaComboBox.setForeground(new java.awt.Color(0, 0, 0));
         jornadaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completa", "Parcial" }));
@@ -825,22 +838,9 @@ public class Empresa extends javax.swing.JFrame {
         ingresarOferta.getContentPane().add(titulacionRequeridaField);
         titulacionRequeridaField.setBounds(400, 210, 190, 18);
 
-        añadirListaTitulacionesBtn.setBackground(new java.awt.Color(0, 0, 51));
-        añadirListaTitulacionesBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        añadirListaTitulacionesBtn.setForeground(new java.awt.Color(0, 0, 0));
-        añadirListaTitulacionesBtn.setText("Añadir");
-        añadirListaTitulacionesBtn.setBorder(null);
-        añadirListaTitulacionesBtn.setContentAreaFilled(false);
-        añadirListaTitulacionesBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        añadirListaTitulacionesBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadirListaTitulacionesBtnActionPerformed(evt);
-            }
-        });
-        ingresarOferta.getContentPane().add(añadirListaTitulacionesBtn);
-        añadirListaTitulacionesBtn.setBounds(610, 200, 80, 32);
-
+        titulacionesRequerida.setBackground(new java.awt.Color(255, 255, 255));
         titulacionesRequerida.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        titulacionesRequerida.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(titulacionesRequerida);
 
         ingresarOferta.getContentPane().add(jScrollPane3);
@@ -903,6 +903,8 @@ public class Empresa extends javax.swing.JFrame {
         ingresarOferta.getContentPane().add(jLabel17);
         jLabel17.setBounds(230, 430, 170, 19);
 
+        listaRequerimientos.setBackground(new java.awt.Color(255, 255, 255));
+        listaRequerimientos.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane4.setViewportView(listaRequerimientos);
 
         ingresarOferta.getContentPane().add(jScrollPane4);
@@ -922,21 +924,6 @@ public class Empresa extends javax.swing.JFrame {
         });
         ingresarOferta.getContentPane().add(añadirOfertaBtn);
         añadirOfertaBtn.setBounds(40, 370, 90, 30);
-
-        añadirHabilidad.setBackground(new java.awt.Color(0, 0, 51));
-        añadirHabilidad.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        añadirHabilidad.setForeground(new java.awt.Color(0, 0, 0));
-        añadirHabilidad.setText("Añadir");
-        añadirHabilidad.setBorder(null);
-        añadirHabilidad.setContentAreaFilled(false);
-        añadirHabilidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        añadirHabilidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadirHabilidadActionPerformed(evt);
-            }
-        });
-        ingresarOferta.getContentPane().add(añadirHabilidad);
-        añadirHabilidad.setBounds(610, 330, 80, 40);
         ingresarOferta.getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(20, 130, 3, 3);
 
@@ -999,16 +986,6 @@ public class Empresa extends javax.swing.JFrame {
         ingresarOferta.getContentPane().add(jSeparator23);
         jSeparator23.setBounds(400, 400, 190, 10);
 
-        jSeparator24.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator24.setForeground(new java.awt.Color(0, 0, 0));
-        ingresarOferta.getContentPane().add(jSeparator24);
-        jSeparator24.setBounds(620, 230, 60, 10);
-
-        jSeparator25.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator25.setForeground(new java.awt.Color(0, 0, 0));
-        ingresarOferta.getContentPane().add(jSeparator25);
-        jSeparator25.setBounds(620, 370, 60, 10);
-
         jPanel5.setBackground(new java.awt.Color(0, 0, 51));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1053,14 +1030,80 @@ public class Empresa extends javax.swing.JFrame {
         jPanel5.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         ingresarOferta.getContentPane().add(jPanel5);
-        jPanel5.setBounds(0, 0, 210, 530);
+        jPanel5.setBounds(0, 0, 210, 480);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        ingresarOferta.getContentPane().add(jPanel6);
-        jPanel6.setBounds(210, 0, 520, 530);
 
-        IdoneosFrame.setMaximumSize(new java.awt.Dimension(728, 370));
+        eliminarTitulacionOfertaBtn.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarTitulacionOfertaBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        eliminarTitulacionOfertaBtn.setForeground(new java.awt.Color(0, 0, 0));
+        eliminarTitulacionOfertaBtn.setText("Eliminar");
+        eliminarTitulacionOfertaBtn.setBorder(null);
+        eliminarTitulacionOfertaBtn.setContentAreaFilled(false);
+        eliminarTitulacionOfertaBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarTitulacionOfertaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarTitulacionOfertaBtnActionPerformed(evt);
+            }
+        });
+        jPanel6.add(eliminarTitulacionOfertaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 210, 60, -1));
+
+        añadirListaTitulacionesBtn.setBackground(new java.awt.Color(0, 0, 51));
+        añadirListaTitulacionesBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        añadirListaTitulacionesBtn.setForeground(new java.awt.Color(0, 0, 0));
+        añadirListaTitulacionesBtn.setText("Añadir");
+        añadirListaTitulacionesBtn.setBorder(null);
+        añadirListaTitulacionesBtn.setContentAreaFilled(false);
+        añadirListaTitulacionesBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        añadirListaTitulacionesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                añadirListaTitulacionesBtnActionPerformed(evt);
+            }
+        });
+        jPanel6.add(añadirListaTitulacionesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 212, 60, 20));
+
+        jSeparator24.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator24.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel6.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 60, 10));
+
+        eliminarHabilidadPunOfertaBtn.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarHabilidadPunOfertaBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        eliminarHabilidadPunOfertaBtn.setForeground(new java.awt.Color(0, 0, 0));
+        eliminarHabilidadPunOfertaBtn.setText("Eliminar");
+        eliminarHabilidadPunOfertaBtn.setBorder(null);
+        eliminarHabilidadPunOfertaBtn.setContentAreaFilled(false);
+        eliminarHabilidadPunOfertaBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarHabilidadPunOfertaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarHabilidadPunOfertaBtnActionPerformed(evt);
+            }
+        });
+        jPanel6.add(eliminarHabilidadPunOfertaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 70, 20));
+
+        añadirHabilidad.setBackground(new java.awt.Color(0, 0, 51));
+        añadirHabilidad.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        añadirHabilidad.setForeground(new java.awt.Color(0, 0, 0));
+        añadirHabilidad.setText("Añadir");
+        añadirHabilidad.setBorder(null);
+        añadirHabilidad.setContentAreaFilled(false);
+        añadirHabilidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        añadirHabilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                añadirHabilidadActionPerformed(evt);
+            }
+        });
+        jPanel6.add(añadirHabilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 60, 20));
+
+        jSeparator25.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator25.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel6.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 60, 10));
+        jPanel6.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 70, 10));
+        jPanel6.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 70, 10));
+
+        ingresarOferta.getContentPane().add(jPanel6);
+        jPanel6.setBounds(210, 0, 560, 480);
+
         IdoneosFrame.setMinimumSize(new java.awt.Dimension(728, 370));
         IdoneosFrame.getContentPane().setLayout(null);
 
@@ -1316,99 +1359,107 @@ public class Empresa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     /**
      * Cuando se presiona el boton muestra el frame para agregar empresas
-     * @param evt 
+     *
+     * @param evt
      */
     private void agregrarEmpresaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregrarEmpresaBtnActionPerformed
 //Limpias los campos a llenar de la empresa
         empresaField.setText("Ingrese el nombre de la empresa");
         telefonoEmpresaField.setText("Ingrese el telefono de la empresa");
-        
+
         agregarEmpresaFrame.setVisible(true);
-        
+
 
     }//GEN-LAST:event_agregrarEmpresaBtnActionPerformed
 
     /**
-     * Cuando se presiona el boton para agregar empresas comprueba que los campos no esten vacios
-     * y agrega los datos a la tabla
-     * @param evt 
+     * Cuando se presiona el boton para agregar empresas comprueba que los
+     * campos no esten vacios y agrega los datos a la tabla
+     *
+     * @param evt
      */
     private void agregarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEmpresaActionPerformed
 //Agrega las empresas una vez se hayan llenado los respectivo campos
-        DefaultTableModel model = (DefaultTableModel) empresaTabla.getModel();
-        boolean vacio = false;
-        String nombre = " ";
-        long telefono = 0;
-        
-        int codigo = (int) (Math.random() * 1000); //Asigna un código random entre 0 y 1000 por el cual se buscaran las ofertas
-        
-        if (empresaField.getText().isEmpty()) {//Si el campo no esta vacio la variable nombre toma el valor del campo
-            vacio = true;
-        } else {
-            nombre = empresaField.getText();
-        }
-        
-        if (telefonoEmpresaField.getText().isEmpty()) {//Si el campo del telefono no esta vacio la variable telefono toma el valor del campo
-            vacio = true;
-        } else {
-            telefono = Long.parseLong(telefonoEmpresaField.getText());
-        }
-        
-        if (vacio) {//Si los campos no estan vacios añade los datos a la tabla
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            model.addRow(new Object[]{codigo, nombre, telefono});//Añade los datos en el respectivo orden 
-            agregarEmpresaFrame.setVisible(false);
+        try {
+            DefaultTableModel model = (DefaultTableModel) empresaTabla.getModel();
+            boolean vacio = false;
+            String nombre = " ";
+            long telefono = 0;
+
+            int codigo = (int) (Math.random() * 1000); //Asigna un código random entre 0 y 1000 por el cual se buscaran las ofertas
+
+            if (empresaField.getText().isEmpty()) {//Si el campo no esta vacio la variable nombre toma el valor del campo
+                vacio = true;
+            } else {
+                nombre = empresaField.getText();
+            }
+
+            if (telefonoEmpresaField.getText().isEmpty()) {//Si el campo del telefono no esta vacio la variable telefono toma el valor del campo
+                vacio = true;
+            } else {
+                telefono = Long.parseLong(telefonoEmpresaField.getText());
+            }
+
+            if (vacio) {//Si los campos no estan vacios añade los datos a la tabla
+                JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                model.addRow(new Object[]{codigo, nombre, telefono});//Añade los datos en el respectivo orden 
+                agregarEmpresaFrame.setVisible(false);
+            }
+        } catch (Exception e) {
+
         }
 
     }//GEN-LAST:event_agregarEmpresaActionPerformed
 
     /**
-     * Cuando se presiona el boton para guardar empresa, añade los datos al archivo Empresa.txt
-     * @param evt 
+     * Cuando se presiona el boton para guardar empresa, añade los datos al
+     * archivo Empresa.txt
+     *
+     * @param evt
      */
     private void guardarEmpresaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpresaBtnActionPerformed
 //Guarda las empresas en el archivo "Empresa.txt"
 
         DefaultTableModel model = (DefaultTableModel) empresaTabla.getModel();
-        
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {//Para escribir en el archivo
-            
+
             int filas = empresaTabla.getRowCount();//Obtiene el numero de filas en ese momento
-            
+
             for (int i = 0; i < filas; i++) {//Las recorre
-                
+
                 Object codigo = model.getValueAt(i, 0);//Obtiene el valor de la fila i y la columna 1
                 Object nombre = model.getValueAt(i, 1);//Obtiene el valor de la fila i y la columna 2
                 Object telefono = model.getValueAt(i, 2);//Obtiene el valor de la fila i y la columna 3
-                
+
                 bw.write(codigo + "," + nombre + "," + telefono);//Escribe en el archivo los datos separados por comas
-                
+
                 bw.newLine();//Hace un salto de linea en el archivo
             }
-            
+
         } catch (Exception e) {
-            
+
         }
 
     }//GEN-LAST:event_guardarEmpresaBtnActionPerformed
 
     /**
      * No permite que se escriban letras en el campo del telefono de la empresa
-     * @param evt 
+     *
+     * @param evt
      */
     private void telefonoEmpresaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoEmpresaFieldKeyTyped
 //Hace que no se digiten letras en el campo de telefono y solo tenga una longitud máxima de 13
         char car = evt.getKeyChar();
         String largo = telefonoEmpresaField.getText();
-        
+
         if (car < '0' || car > '9') {
             evt.consume();//Borra los caracteres diferentes entre el rango del 0 al 9
         }
-        
+
         if (largo.length() > 13) {
             evt.consume();//Si la longitud del telefono es mayor que 13 lo borra
         }
@@ -1416,9 +1467,10 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_telefonoEmpresaFieldKeyTyped
 
     /**
-     * No permite que se digiten numeros en el campo del nombre de la empresa, ni cualquier otro tipo de caracter
-     * diferente a una letra
-     * @param evt 
+     * No permite que se digiten numeros en el campo del nombre de la empresa,
+     * ni cualquier otro tipo de caracter diferente a una letra
+     *
+     * @param evt
      */
     private void empresaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_empresaFieldKeyTyped
 //Hace que el usuario no digite números en el nombre de la empresa
@@ -1446,123 +1498,134 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_empresaFieldKeyTyped
 
     /**
-     * Abre un FileChooser al cual se la aplica un filtro para archivo txt, text, TEXT
-     * Si la opcion es valida carga los datos a la tabla
-     * @param evt 
+     * Abre un FileChooser al cual se la aplica un filtro para archivo txt,
+     * text, TEXT Si la opcion es valida carga los datos a la tabla
+     *
+     * @param evt
      */
     private void seleccionarEmpresaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarEmpresaBtnActionPerformed
 //Escoge el archivo donde estén todas las empresas
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.txt", "text", "TEXT", "txt");//Solo archivo txt, text, TEXT
-        
+
         FileChooser.setFileFilter(filter);//Se le aplica el filtro al FileChooser
         int op = FileChooser.showOpenDialog(this);
-        
+
         if (op == JFileChooser.APPROVE_OPTION) {//Si la opcion es correcta 
             archivo = FileChooser.getSelectedFile();//Obtiene la direccion del archivo seleccionado
-            
+
             nombreArchivoField.setText(archivo.getAbsolutePath());//Se muestra donde esta ubicado
-            
+
             DefaultTableModel model = (DefaultTableModel) empresaTabla.getModel();
-            
+
             try (Scanner leer = new Scanner(archivo)) {
                 while (leer.hasNextLine()) {//Mientras que el archivo tenga más datos
                     String linea = leer.nextLine();//Los extrae
-                    
+
                     String[] datos = linea.split(",");//Se hace un .split para asignar cada posicion segun los campos 
-                                                      
+
                     int codigo = Integer.parseInt(datos[0]);
                     String empresa = datos[1];
                     long telefono = Long.parseLong(datos[2]);
-                    
+
                     model.addRow(new Object[]{codigo, empresa, telefono});//Se introducen en la tabla segun los campos
-                    
+
                 }
-                
+
             } catch (Exception e) {
-                
+
             }
         }
-        
+
 
     }//GEN-LAST:event_seleccionarEmpresaBtnActionPerformed
 
     /**
      * Se selecciona una fila y se elimina esa empresa
-     * @param evt 
+     *
+     * @param evt
      */
     private void eliminarEmpresaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpresaBtnActionPerformed
 //Elimina una empresa indeseada
         DefaultTableModel model = (DefaultTableModel) empresaTabla.getModel();
-        
+
         int fila = empresaTabla.getSelectedRow();//Obtiene la fila seleccionada
-        
+
         model.removeRow(fila);//Se elimina esa fila
 
     }//GEN-LAST:event_eliminarEmpresaBtnActionPerformed
 
     /**
-     * Si los campos son llenados correctamente los datos de la oferta son mostrados 
-     * en la tabla de las ofertas 
-     * @param evt 
+     * Si los campos son llenados correctamente los datos de la oferta son
+     * mostrados en la tabla de las ofertas
+     *
+     * @param evt
      */
     private void añadirOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirOfertaBtnActionPerformed
 //Añade la respectiva ofertas con el código de la empresa a la cual se selecciono
-        DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
-        boolean vacio = false, logica = false;
-        String puesto = " ", descripcion = "", salario = "";
-        String jornada = (String) jornadaComboBox.getSelectedItem();
-        int codigo = (int) empresaTabla.getValueAt(empresaTabla.getSelectedRow(), 0);
-        
-        if (nombrePuestoField.getText().isEmpty()) {//Comprueba que el nombre del puesto no este vacio
-            vacio = true;
-        } else {
-            puesto = nombrePuestoField.getText();
+
+        try {
+            DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
+            boolean vacio = false, logica = false;
+            String puesto = " ", descripcion = "", salario = "";
+            String jornada = (String) jornadaComboBox.getSelectedItem();
+            int codigo = (int) empresaTabla.getValueAt(empresaTabla.getSelectedRow(), 0);
+
+            if (nombrePuestoField.getText().isEmpty()) {//Comprueba que el nombre del puesto no este vacio
+                vacio = true;
+            } else {
+                puesto = nombrePuestoField.getText();
+            }
+            if (descripcionPuestoField.getText().isEmpty()) {//Comprueba que la descripcion del puesto no este vacio
+                vacio = true;
+            } else {
+                descripcion = descripcionPuestoField.getText();
+            }
+
+            if (salarioInicialField.getText().isEmpty() && salarioFinalField.getText().isEmpty()) {//Comprueba que el rango del salario no este vacio
+                vacio = true;
+            } else {
+                salario = salarioInicialField.getText() + "-" + salarioFinalField.getText();
+            }
+
+            if (Integer.parseInt(salarioInicialField.getText()) > Integer.parseInt(salarioFinalField.getText())) {//Comprueba que el 
+                logica = true; //salario inicial no sea mayor que el rango final
+                JOptionPane.showMessageDialog(null, "Salario final no puede ser mayor que el inicial", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            List<String> titulaciones = titulacionesRequerida.getSelectedValuesList();//Obtiene las titulaciones seleccionadas 
+            if (titulaciones.isEmpty() || titulaciones.size() < 2) {
+                vacio = true;
+            }
+            List<String> habilidades = listaRequerimientos.getSelectedValuesList();//Obtiene la habilidad con las puntuaciones seleccionadas
+            if (habilidades.isEmpty() || habilidades.size() < 3) {
+                vacio = true;
+            }
+
+            if (vacio && logica) {//Comprueba que no este vacio ningun campo y que los datos sean llenados correctamente
+                JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                model.addRow(new Object[]{codigo, puesto, descripcion, salario, jornada, titulaciones, habilidades});//Añade una ofeta a la tabla
+                ingresarOferta.setVisible(false);
+            }
+        } catch (Exception e) {
+            
         }
-        if (descripcionPuestoField.getText().isEmpty()) {//Comprueba que la descripcion del puesto no este vacio
-            vacio = true;
-        } else {
-            descripcion = descripcionPuestoField.getText();
-        }
-        
-        if (salarioInicialField.getText().isEmpty() && salarioFinalField.getText().isEmpty()) {//Comprueba que el rango del salario no este vacio
-            vacio = true;
-        } else {
-            salario = salarioInicialField.getText() + "-" + salarioFinalField.getText();
-        }
-        
-        if (Integer.parseInt(salarioInicialField.getText()) > Integer.parseInt(salarioFinalField.getText())) {//Comprueba que el 
-            logica = true; //salario inicial no sea mayor que el rango final
-            JOptionPane.showMessageDialog(null, "Salario final no puede ser mayor que el inicial", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        List<String> titulaciones = titulacionesRequerida.getSelectedValuesList();//Obtiene las titulaciones seleccionadas 
-        if (titulaciones.isEmpty() || titulaciones.size() < 2) {  
-            vacio = true;
-        }
-        List<String> habilidades = listaRequerimientos.getSelectedValuesList();//Obtiene la habilidad con las puntuaciones seleccionadas
-        if (habilidades.isEmpty() || habilidades.size() < 3) {
-            vacio = true;
-        }
-        
-        if (vacio && logica) {//Comprueba que no este vacio ningun campo y que los datos sean llenados correctamente
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            model.addRow(new Object[]{codigo, puesto, descripcion, salario, jornada, titulaciones, habilidades});//Añade una ofeta a la tabla
-            ingresarOferta.setVisible(false);
-        }
+
 
     }//GEN-LAST:event_añadirOfertaBtnActionPerformed
 
     /**
-     * Despliega el el frame de la creacion de ofertas cuando se clickea el boton para crearlas 
-     * Se llenan los campos de una manera predeterminada y se limpian las listas
-     * @param evt 
+     * Despliega el el frame de la creacion de ofertas cuando se clickea el
+     * boton para crearlas Se llenan los campos de una manera predeterminada y
+     * se limpian las listas
+     *
+     * @param evt
      */
     private void crearOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearOfertaBtnActionPerformed
 //Limpia los campos a llenar
-        DefaultListModel model = (DefaultListModel) listaRequerimientos.getModel();
-        DefaultListModel modelo = (DefaultListModel) titulacionesRequerida.getModel();
-        
+        DefaultListModel model = new DefaultListModel();
+        DefaultListModel modelo = new DefaultListModel();
+
         nombrePuestoField.setText("Ingrese el nombre del puesto");
         descripcionPuestoField.setText("Ingrese la descripción del puesto");
         salarioInicialField.setText("Salario inicial");
@@ -1570,23 +1633,22 @@ public class Empresa extends javax.swing.JFrame {
         titulacionRequeridaField.setText("Ingrese la titulación");
         habilidadRequeridaField.setText("Ingrese la habilidad");
         nivelRequeridoField.setText("Ingrese el nivel de la habilidad");
-        model.clear();
-        modelo.clear();
-        listaRequerimientos.removeAll();
-        titulacionesRequerida.removeAll();
-        
+        listaRequerimientos.setModel(model);//Actualiza la lista
+        listaRequerimientos.setModel(modelo);//Actualiza la lista
+
         ingresarOferta.setVisible(true);
 
     }//GEN-LAST:event_crearOfertaBtnActionPerformed
 
     /**
      * Añade titulaciones a la lista con un rango maximo y minimo de 2
-     * @param evt 
+     *
+     * @param evt
      */
     private void añadirListaTitulacionesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirListaTitulacionesBtnActionPerformed
 //Añade titulaciones a la lista 
         DefaultListModel model = (DefaultListModel) titulacionesRequerida.getModel();
-        
+
         if (model.getSize() < 2) {
             if (!titulacionRequeridaField.getText().isEmpty()) {//Comprueba que el campo no este vacio
                 String titulacion = titulacionRequeridaField.getText();
@@ -1602,13 +1664,15 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_añadirListaTitulacionesBtnActionPerformed
 
     /**
-     * Añade habilidades a la lista junto con su puntuación con valor máximo y mínimo de 3
-     * @param evt 
+     * Añade habilidades a la lista junto con su puntuación con valor máximo y
+     * mínimo de 3
+     *
+     * @param evt
      */
     private void añadirHabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirHabilidadActionPerformed
 //Añade habilidades a la lista de habilidades junto con la puntuación
         DefaultListModel model = (DefaultListModel) listaRequerimientos.getModel();
-        
+
         if (model.getSize() < 3) {
             if (!habilidadRequeridaField.getText().isEmpty() && !nivelRequeridoField.getText().isEmpty()) {//Comprueba que los campos no esten vacios
                 String habilidad = habilidadRequeridaField.getText();
@@ -1621,18 +1685,20 @@ public class Empresa extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Solo puede agregar 3 habilidades", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
 
     }//GEN-LAST:event_añadirHabilidadActionPerformed
 
     /**
-     * Valida que no se digiten numeros o caracteres especiales en el campo del nombre del puesto para las ofertas
-     * @param evt 
+     * Valida que no se digiten numeros o caracteres especiales en el campo del
+     * nombre del puesto para las ofertas
+     *
+     * @param evt
      */
     private void nombrePuestoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePuestoFieldKeyTyped
 //Hace que el usuario no digite números en el campo del nombre del puesto
         char car = evt.getKeyChar();
-        
+
         if ((car < 'a' || car > 'z') && (car < 'A' || car > 'Z')
                 && car != 'á' //Minúsculas           
                 && car != 'é'
@@ -1651,13 +1717,15 @@ public class Empresa extends javax.swing.JFrame {
             evt.consume();//Borra cualquier caracter diferente al de los listados
             JOptionPane.showMessageDialog(null, "Solo puede digitar letras", "Error", JOptionPane.WARNING_MESSAGE);
         }
-        
+
 
     }//GEN-LAST:event_nombrePuestoFieldKeyTyped
 
     /**
-     * Valida que no se digiten numeros o caracteres especiales en el campo de titulaciones para las ofertas
-     * @param evt 
+     * Valida que no se digiten numeros o caracteres especiales en el campo de
+     * titulaciones para las ofertas
+     *
+     * @param evt
      */
     private void titulacionRequeridaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_titulacionRequeridaFieldKeyTyped
 //Hace que el usuario no digite números en el campo de titulación
@@ -1685,8 +1753,10 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_titulacionRequeridaFieldKeyTyped
 
     /**
-     * No permite números o caracteres especiales en el campo de habilidades para las ofertas
-     * @param evt 
+     * No permite números o caracteres especiales en el campo de habilidades
+     * para las ofertas
+     *
+     * @param evt
      */
     private void habilidadRequeridaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_habilidadRequeridaFieldKeyTyped
 //Hace que el usuario no digite números en el campo de habilidad
@@ -1714,17 +1784,18 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * No permite letras en el campo del nivel ni una longitud mayor a 1 digito
-     * @param evt 
+     *
+     * @param evt
      */
     private void nivelRequeridoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nivelRequeridoFieldKeyTyped
 //Hace que el usuario no puede digitar más de un número en el nivel y solo pueda digitar números
         char car = evt.getKeyChar();
         String largo = nivelRequeridoField.getText();
-        
+
         if (car < '1' || car > '5') {
             evt.consume();//Solo puede digitar valores entre 0 y 9 
         }
-        
+
         if (largo.length() > 0) {
             evt.consume();//No permite una longitud mayor a 1 digito
         }
@@ -1732,13 +1803,14 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_nivelRequeridoFieldKeyTyped
 
     /**
-     * No permite letras en el campo del salario inicial para las ofertas 
-     * @param evt 
+     * No permite letras en el campo del salario inicial para las ofertas
+     *
+     * @param evt
      */
     private void salarioInicialFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioInicialFieldKeyTyped
 //Hace que el usuario no permita digitar letras en el campo de salario inicial
         char car = evt.getKeyChar();
-        
+
         if (car < '0' || car > '9') {
             evt.consume();//Solo puede digitar numeros entre el 0 y el 9
         }
@@ -1747,12 +1819,13 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * No permite letras en el campo del salario final para las ofertas
-     * @param evt 
+     *
+     * @param evt
      */
     private void salarioFinalFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioFinalFieldKeyTyped
 //Hace que el usuario no pueda digitar letras en el campo de salario final
         char car = evt.getKeyChar();
-        
+
         if (car < '0' || car > '9') {
             evt.consume();//Solo puede digitar numeros entre el 0 y el 9
         }
@@ -1761,38 +1834,40 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * Elimina una fila seleccionada de las ofertas
-     * @param evt 
+     *
+     * @param evt
      */
     private void eliminarOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarOfertaBtnActionPerformed
 //Permite eliminar una oferta no deseada o mal formulada
         DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
-        
+
         int fila = ofertasTable.getSelectedRow();//Obtiene la fila seleccionada
-        
+
         model.removeRow(fila);//Borra la fila seleccionada
 
     }//GEN-LAST:event_eliminarOfertaBtnActionPerformed
 
     /**
-     * Cuando se doble clickea la tabla de ofertas se abre la tabla de los más idoneos 
-     * para la oferta
-     * @param evt 
+     * Cuando se doble clickea la tabla de ofertas se abre la tabla de los más
+     * idoneos para la oferta
+     *
+     * @param evt
      */
     private void ofertasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ofertasTableMouseClicked
 //Muestre los ideoneos para el trabajo        
         DefaultTableModel modelo = (DefaultTableModel) candidatoITable.getModel();
-        
+
         if (evt.getClickCount() == 2) {
-            
+
             try (FileReader fr = new FileReader(solicitante)) {//Lee el archivo
                 BufferedReader br = new BufferedReader(fr);//Lee el archivo
-                
+
                 String linea = br.readLine();//Obtiene los datos del archivo
                 while (linea != null) {//Si el archivo tiene datos los extrae
-                    
-                    String [] datos = linea.split(",");
-                    String [] datos1 = ofertasTable.getValueAt(ofertasTable.getSelectedRow(), 5).toString().split(" ");
-                    
+
+                    String[] datos = linea.split(",");
+                    String[] datos1 = ofertasTable.getValueAt(ofertasTable.getSelectedRow(), 5).toString().split(" ");
+
                     if (datos[6].equalsIgnoreCase(datos1[0]) || datos[6].equalsIgnoreCase(datos1[2])//Compara a partir de las 
                             || datos[7].equalsIgnoreCase(datos1[0]) || datos[7].equalsIgnoreCase(datos1[1])) {//Titulaciones
                         String nombre = datos[0];
@@ -1803,7 +1878,7 @@ public class Empresa extends javax.swing.JFrame {
                         String jornada = datos[5];
                         String titulaciones = datos[6] + datos[7];
                         String habilidadPun = datos[8] + datos[9] + datos[10] + datos[11] + datos[12] + datos[13];
-                        
+
                         modelo.addRow(new Object[]{nombre, email, telefono, retribucion, foto, jornada,
                             titulaciones, habilidadPun});//Añade los datos en los respectivos campos
                     }
@@ -1814,17 +1889,15 @@ public class Empresa extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(Empresa.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             ofertaEmpresaTrabajo.dispose();
-            
-            
+
             //ordernarIdoneos(modelo);
-            
             IdoneosFrame.setVisible(true);
         }
 
     }//GEN-LAST:event_ofertasTableMouseClicked
-    
+
     /*public void ordernarIdoneos(DefaultTableModel model) {
         //Ordena los solicitantes de manera descendente, del más calificado al menos calificado
         for (int i = 0; i < model.getRowCount(); i++) {
@@ -1861,12 +1934,12 @@ public class Empresa extends javax.swing.JFrame {
             }
         }
     }*/
-
-    
     /**
-     * Cuando se doble clickea la tabla de la empresas busca las ofertas y muestra las que tengan en el mismo codigo
-     * Permite crear ofertas para esa empresa y crear más ofertas, así como también eliminarlas
-     * @param evt 
+     * Cuando se doble clickea la tabla de la empresas busca las ofertas y
+     * muestra las que tengan en el mismo codigo Permite crear ofertas para esa
+     * empresa y crear más ofertas, así como también eliminarlas
+     *
+     * @param evt
      */
     private void empresaTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresaTablaMouseClicked
 //Carga las ofertas disponibles de esa empresa(Si las hay) y permite crear más para la respectiva empresa
@@ -1874,13 +1947,13 @@ public class Empresa extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
             try (FileReader fr = new FileReader(file)) {//Lee el archivo de ofertas
                 BufferedReader br = new BufferedReader(fr);//Lee el archivo de ofertas
-                
+
                 String linea = br.readLine();
                 while (linea != null) {//Si el archivo tiene datos extrae los datos
-                    
+
                     String[] datos = linea.split(",");
                     if (datos[0].equals(empresaTabla.getValueAt(empresaTabla.getSelectedRow(), 0).toString())) {//Compara los datos extrados del archivo a traves del codigo
-                                                                                //y lo compara con el de la tabla de la empresa                        
+                        //y lo compara con el de la tabla de la empresa                        
                         int codigo = Integer.parseInt(datos[0]);
                         String cargo = datos[1];
                         String descripcion = datos[2];
@@ -1888,7 +1961,7 @@ public class Empresa extends javax.swing.JFrame {
                         String jornada = datos[4];
                         String titulacion = (datos[5] + datos[6]);
                         String habilidad = (datos[7] + datos[8] + datos[9] + datos[10] + datos[11] + datos[12]);
-                        
+
                         model.addRow(new Object[]{codigo, cargo, descripcion, retribucion, jornada, titulacion,
                             habilidad});//Añade datos a la tabla de las ofertas si el codigo es igual y en los respectivos campos
                     }
@@ -1902,26 +1975,27 @@ public class Empresa extends javax.swing.JFrame {
             this.dispose();
             ofertaEmpresaTrabajo.setVisible(true);
             empresaOfertaField.setText((String) empresaTabla.getValueAt(empresaTabla.getSelectedRow(), 1));
-            
+
         }
-        
+
 
     }//GEN-LAST:event_empresaTablaMouseClicked
 
     /**
      * Guarda las ofertas que esten cargadas en el momento en la tabla
-     * @param evt 
+     *
+     * @param evt
      */
     private void guardarOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarOfertaBtnActionPerformed
 //Guarda las ofertas en el archivo "Ofertas.txt"
         DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
-        
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {//Para escribir en el archivo
-            
+
             int filas = ofertasTable.getRowCount();//Obtiene el numero de filas de la tabla
-            
+
             for (int i = 0; i < filas; i++) {//Las recorre
-                
+
                 Object codigo = model.getValueAt(i, 0);//Obtiene el valor de la fila i y la columna 1
                 Object cargo = model.getValueAt(i, 1);//Obtiene el valor de la fila i y la columna 2
                 Object descripcion = model.getValueAt(i, 2);//Obtiene el valor de la fila i y la columna 3
@@ -1929,46 +2003,48 @@ public class Empresa extends javax.swing.JFrame {
                 Object jornada = model.getValueAt(i, 4);//Obtiene el valor de la fila i y la columna 5
                 Object titulaciones = model.getValueAt(i, 5);//Obtiene el valor de la fila i y la columna 6
                 Object requerimientos = model.getValueAt(i, 6);//Obtiene el valor de la fila i y la columna 7
-                
+
                 bw.write(codigo + "," + cargo + "," + descripcion + "," + rangoSalario + ","
                         + jornada + "," + titulaciones + "," + requerimientos);//Escribe en el archivo separado por comas
-                
+
                 bw.newLine();//Hace un salto de linea en el archivo
             }
-            
+
         } catch (Exception e) {
-            
+
         }
-        
+
 
     }//GEN-LAST:event_guardarOfertaBtnActionPerformed
 
     /**
-     * Carga todas las ofertas para obtenerlas todas así sobreescribir el archivo y no perder ninguna oferta
-     * Se le aplica un filtro al FileChooser para cargar las ofertas
-     * @param evt 
+     * Carga todas las ofertas para obtenerlas todas así sobreescribir el
+     * archivo y no perder ninguna oferta Se le aplica un filtro al FileChooser
+     * para cargar las ofertas
+     *
+     * @param evt
      */
     private void seleccionarOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarOfertaBtnActionPerformed
         /*Selecciona el archivo de las ofertas de manera que las muestre todas, de esta manera así permite tener todas las ofertas
  de todas las empresas*/
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos.txt", "text", "TEXT", "txt");//Filtro txt, text, TEXT
-        
+
         fileChooser.setFileFilter(filter);//Se le aplica el filtro al FileChooser
         int op = fileChooser.showOpenDialog(this);
-        
+
         if (op == fileChooser.APPROVE_OPTION) {//Si el archivo escogido en el FileChooser es correcto
             file = fileChooser.getSelectedFile();//Obtiene la ubicacion del archivo
-            
+
             ubicacionOfertaArchivo.setText(file.getAbsolutePath());//Muestra la ubicacion del archivo
-            
+
             DefaultTableModel model = (DefaultTableModel) ofertasTable.getModel();
-            
+
             try (Scanner leer = new Scanner(file)) {
                 while (leer.hasNextLine()) {//Mientras que el archivo tenga datos 
                     String linea = leer.nextLine();//Los extrae
-                    
+
                     String[] datos = linea.split(",");//Se les hace un .split para asignarlos y así cargarlos a la tabla
-                    
+
                     int codigo = Integer.parseInt(datos[0]);
                     String cargo = datos[1];
                     String descripcion = datos[2];
@@ -1976,22 +2052,24 @@ public class Empresa extends javax.swing.JFrame {
                     String jornada = datos[4];
                     String titulacion = (datos[5] + datos[6]);
                     String habilidad = (datos[7] + datos[8] + datos[9] + datos[10] + datos[11] + datos[12]);
-                    
+
                     model.addRow(new Object[]{codigo, cargo, descripcion, retribucion, jornada, titulacion,
                         habilidad});//Carga los datos respectivamente en el campo correspondiente
-                    
+
                 }
-                
+
             } catch (Exception e) {
-                
+
             }
         }
 
     }//GEN-LAST:event_seleccionarOfertaBtnActionPerformed
 
     /**
-     * Cuando se le da doble click a la tabla de los idoneos te muestra el frame para enviar un correo electronico
-     * @param evt 
+     * Cuando se le da doble click a la tabla de los idoneos te muestra el frame
+     * para enviar un correo electronico
+     *
+     * @param evt
      */
     private void candidatoITableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatoITableMouseClicked
 //Genera una simulación de que se envia un correo
@@ -2002,28 +2080,30 @@ public class Empresa extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_candidatoITableMouseClicked
-    
+
     /**
      * Le dal el frame de las solicitantes idoneos a la clase de EnviarCorreo
-     * @return  IdoneosFrame
+     *
+     * @return IdoneosFrame
      */
-    public Frame dameIdoneosFrame(){
+    public Frame dameIdoneosFrame() {
         return IdoneosFrame;
     }
-    
+
     /**
      * Le da el frame de las ofertas a la clase de EnviarCorreo
+     *
      * @return ofertaEmpresaTrabajo
      */
-    public Frame dameOfertasFrame(){
+    public Frame dameOfertasFrame() {
         return ofertaEmpresaTrabajo;
     }
-    
-    
+
     /**
-     * Cuando se le da click al icono de la esquina superior izquierda 
-     * se muestra diferentes iconos para retroceder y cerrar 
-     * @param evt 
+     * Cuando se le da click al icono de la esquina superior izquierda se
+     * muestra diferentes iconos para retroceder y cerrar
+     *
+     * @param evt
      */
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
@@ -2037,16 +2117,17 @@ public class Empresa extends javax.swing.JFrame {
         //Se desplaza hacia la izquierda
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
-        
+
         retrocederf.jLabelXLeft(10, -40, 10, 5, retroceder);//Desplaza el icono de retroceder hacia la izquierda
         cerrarf.jLabelXLeft(10, -40, 10, 5, cerrar);//Desplaza el icono de retroceder hacia la izquierda
-        
+
 
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * Cuando se le da doble click al icono de retroceder te lleva al login
-     * @param evt 
+     *
+     * @param evt
      */
     private void retrocederMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederMouseClicked
 //Retrocede al login desde el frame de empresa
@@ -2062,20 +2143,23 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * Cuando se le da doble click al icono de cerrar, el programa se cerrara
-     * @param evt 
+     *
+     * @param evt
      */
     private void cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseClicked
 //Cierra el programa
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarMouseClicked
 
     /**
-     * Cuando se le da click al icono de la esquina superior izquierda se despliegan diferentes iconos
-     * para retroceder, ir al login y cerrar el programa
-     * @param evt 
+     * Cuando se le da click al icono de la esquina superior izquierda se
+     * despliegan diferentes iconos para retroceder, ir al login y cerrar el
+     * programa
+     *
+     * @param evt
      */
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
 
@@ -2092,59 +2176,65 @@ public class Empresa extends javax.swing.JFrame {
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambiarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
-        
+
         retrocederf.jLabelXLeft(10, -40, 10, 5, retroceder);//Despliega el icono de retroceder hacia la izquierda
         cambiarf.jLabelXLeft(10, -40, 10, 5, cambioUsuario);//Despliega el icono de ir al login hacia la izquierda
         cerrarf.jLabelXLeft(10, -40, 10, 5, cerrar);//Despleiga el icono de cerra hacia la izquierda
-        
+
     }//GEN-LAST:event_jLabel24MouseClicked
 
     /**
-     * Cuando se le da doble click al icono de cambiar de usuario se va al frame del login
-     * @param evt 
+     * Cuando se le da doble click al icono de cambiar de usuario se va al frame
+     * del login
+     *
+     * @param evt
      */
     private void cambioUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambioUsuarioMouseClicked
 //Te lleva al login cerrando todo lo abierto con respecto a empresas
         HumanWare Field = new HumanWare();
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             agregarEmpresaFrame.dispose();
             this.dispose();
             new HumanWare().setVisible(true);
             Field.dameUsuarioTextField().setText("Ingrese usuario");
             Field.dameContraseñaField().setText("Ingrese contraseña");
         }
-        
+
     }//GEN-LAST:event_cambioUsuarioMouseClicked
 
     /**
      * Cuando se le da doble click al icono de cerrar, el programa se cierra
-     * @param evt 
+     *
+     * @param evt
      */
     private void cerrarProgramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarProgramaMouseClicked
 
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarProgramaMouseClicked
 
     /**
-     * Cuando se le da doble click al icono de retroceder se regresa al frame de las empresas 
-     * @param evt 
+     * Cuando se le da doble click al icono de retroceder se regresa al frame de
+     * las empresas
+     *
+     * @param evt
      */
     private void retrocederEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederEmpresasMouseClicked
 //Retrocede al frame del listado de empresas
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             agregarEmpresaFrame.dispose();
         }
-        
+
     }//GEN-LAST:event_retrocederEmpresasMouseClicked
 
     /**
      * Cuando se le da click al icono de menu en la esquina superior izquierda
      * se despliegan los iconos de cerrar, cambiar usuario, cerrar el programa
      * en el frame de las ofertas
-     * @param evt 
+     *
+     * @param evt
      */
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
 
@@ -2161,7 +2251,7 @@ public class Empresa extends javax.swing.JFrame {
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambiarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
-        
+
         retrocederf.jLabelXLeft(10, -40, 10, 5, devolverEmpresas);//Despliega el icono de retroceder hacia la izquierda
         cambiarf.jLabelXLeft(10, -40, 10, 5, cambiarSolicitantes);//Despliega el icono de ir al login hacia la izquierda
         cerrarf.jLabelXLeft(10, -40, 10, 5, cerrarSistema);//Despliega el icono de cerrar hacia la izquierda
@@ -2169,51 +2259,57 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel19MouseClicked
 
     /**
-     * Cuando se le da doble click al icono de cambiar de usuario, te lleva al login
-     * @param evt 
+     * Cuando se le da doble click al icono de cambiar de usuario, te lleva al
+     * login
+     *
+     * @param evt
      */
     private void cambiarSolicitantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarSolicitantesMouseClicked
 //Te lleva al login desde el frame de las ofertas de cada empresa
         HumanWare Field = new HumanWare();
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             ofertaEmpresaTrabajo.dispose();
             this.dispose();
             new HumanWare().setVisible(true);
             Field.dameUsuarioTextField().setText("Ingrese usuario");
             Field.dameContraseñaField().setText("Ingrese contraseña");
         }
-        
+
     }//GEN-LAST:event_cambiarSolicitantesMouseClicked
 
     /**
      * Cuando se le da doble click al icono de cerrar, cierra el programa
-     * @param evt 
+     *
+     * @param evt
      */
     private void cerrarSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarSistemaMouseClicked
 //Cierra el programa
-        if(evt.getClickCount() == 2){
-         System.exit(0);
+        if (evt.getClickCount() == 2) {
+            System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarSistemaMouseClicked
 
     /**
-     * Cuando se le da doble click al icono de retroceder, se devuelve al listado de las empresas
-     * @param evt 
+     * Cuando se le da doble click al icono de retroceder, se devuelve al
+     * listado de las empresas
+     *
+     * @param evt
      */
     private void devolverEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolverEmpresasMouseClicked
 //Devuelve al frame del listado de las empresas
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             ofertaEmpresaTrabajo.dispose();
             this.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_devolverEmpresasMouseClicked
 
     /**
-     * Cuando se le da click al icono de la esquina superior izquierda despliega los iconos de
-     * retroceder, ir al login y cerrar
-     * @param evt 
+     * Cuando se le da click al icono de la esquina superior izquierda despliega
+     * los iconos de retroceder, ir al login y cerrar
+     *
+     * @param evt
      */
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
 
@@ -2230,20 +2326,22 @@ public class Empresa extends javax.swing.JFrame {
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambiarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
-        
+
         retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederOfertas);//Despliega hacia la izquierda el icono de retroceder
         cambiarf.jLabelXLeft(10, -40, 10, 5, usuarioCambio);//Despliega hacia la izquierda el icono de ir al login
         cerrarf.jLabelXLeft(10, -40, 10, 5, CerrarFrames);//Despliega hacia la izquierda el icono de cerrar
-        
+
     }//GEN-LAST:event_jLabel28MouseClicked
 
     /**
-     * Cuando se le doble click al icono de retroceder se devuelve al frame de las ofertas creadas 
-     * @param evt 
+     * Cuando se le doble click al icono de retroceder se devuelve al frame de
+     * las ofertas creadas
+     *
+     * @param evt
      */
     private void retrocederOfertasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederOfertasMouseClicked
 //Se devuelve a las ofertas ya creadas de cada empresa
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             ingresarOferta.dispose();
         }
 
@@ -2251,12 +2349,13 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * Cuando se le da doble click al icono de cambiar de usuario se va al login
-     * @param evt 
+     *
+     * @param evt
      */
     private void usuarioCambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioCambioMouseClicked
 //Te lleva al login desde el frame de la creación de ofertas
         HumanWare Field = new HumanWare();
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             ofertaEmpresaTrabajo.dispose();
             ingresarOferta.dispose();
             new HumanWare().setVisible(true);
@@ -2268,20 +2367,22 @@ public class Empresa extends javax.swing.JFrame {
 
     /**
      * Cuando se le da doble click al icono de cerrar, cierra el programa
-     * @param evt 
+     *
+     * @param evt
      */
     private void CerrarFramesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarFramesMouseClicked
 //Cierra el programa
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_CerrarFramesMouseClicked
 
     /**
-     * Cuando se le da click al icono de la esquina superior izquierda, despliega los iconos
-     * de retroceder, ir al login y cerrar
-     * @param evt 
+     * Cuando se le da click al icono de la esquina superior izquierda,
+     * despliega los iconos de retroceder, ir al login y cerrar
+     *
+     * @param evt
      */
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
 
@@ -2298,21 +2399,23 @@ public class Empresa extends javax.swing.JFrame {
         AnimationClass cerrarf = new AnimationClass();
         AnimationClass cambiarf = new AnimationClass();
         AnimationClass retrocederf = new AnimationClass();
-        
+
         retrocederf.jLabelXLeft(10, -40, 10, 5, retrocederListaOfertas);//Despliega hacia la izquierda el icono de retroceder
         cambiarf.jLabelXLeft(10, -40, 10, 5, irLogin);//Despliega hacia la izquierda el icono de ir al login
         cerrarf.jLabelXLeft(10, -40, 10, 5, cerrarSystem);//Despliega hacia la izquierda el icono de cerrar
-        
-        
+
+
     }//GEN-LAST:event_jLabel27MouseClicked
 
     /**
-     * Cuando se le da doble click al icono de retroceder se devuelve al frame de los candidatos idoneos
-     * @param evt 
+     * Cuando se le da doble click al icono de retroceder se devuelve al frame
+     * de los candidatos idoneos
+     *
+     * @param evt
      */
     private void retrocederListaOfertasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retrocederListaOfertasMouseClicked
 //Retrocede a las ofertas
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             IdoneosFrame.dispose();
             ofertaEmpresaTrabajo.setVisible(true);
         }
@@ -2320,152 +2423,208 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_retrocederListaOfertasMouseClicked
 
     /**
-     * Cuando se la doble click al icono de cambiar de usuario, te lleva al login
-     * @param evt 
+     * Cuando se la doble click al icono de cambiar de usuario, te lleva al
+     * login
+     *
+     * @param evt
      */
     private void irLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_irLoginMouseClicked
 //Te lleva al login desde el frame de los idoneos
         HumanWare Field = new HumanWare();
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             ofertaEmpresaTrabajo.dispose();
             IdoneosFrame.dispose();
             new HumanWare().setVisible(true);
             Field.dameUsuarioTextField().setText("Ingrese usuario");
             Field.dameContraseñaField().setText("Ingrese contraseña");
         }
-        
-        
+
+
     }//GEN-LAST:event_irLoginMouseClicked
 
     /**
      * Cuando se le da doble click al icono de cerrar, cierra el programa
-     * @param evt 
+     *
+     * @param evt
      */
     private void cerrarSystemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarSystemMouseClicked
 //Cierra el programa
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_cerrarSystemMouseClicked
 
     /**
-     * Cuando se le da click al campo del nombre se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del nombre se pone vacio si tiene algo
+     * escrito
+     *
+     * @param evt
      */
     private void nombrePuestoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombrePuestoFieldMouseClicked
 //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             nombrePuestoField.setText("");
         }
-        
+
     }//GEN-LAST:event_nombrePuestoFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de descripcion se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de descripcion se pone vacio si tiene algo
+     * escrito
+     *
+     * @param evt
      */
     private void descripcionPuestoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descripcionPuestoFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             descripcionPuestoField.setText("");
         }
-        
+
     }//GEN-LAST:event_descripcionPuestoFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del salario inicial se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del salario inicial se pone vacio si tiene
+     * algo escrito
+     *
+     * @param evt
      */
     private void salarioInicialFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salarioInicialFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             salarioInicialField.setText("");
         }
 
     }//GEN-LAST:event_salarioInicialFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de salario final se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de salario final se pone vacio si tiene
+     * algo escrito
+     *
+     * @param evt
      */
     private void salarioFinalFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salarioFinalFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             salarioFinalField.setText("");
         }
 
     }//GEN-LAST:event_salarioFinalFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de titulacion se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de titulacion se pone vacio si tiene algo
+     * escrito
+     *
+     * @param evt
      */
     private void titulacionRequeridaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titulacionRequeridaFieldMouseClicked
 
-       //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        //Pone vacio el campo una vez se le da click
+        if (evt.getClickCount() == 1) {
             titulacionRequeridaField.setText("");
         }
-        
+
     }//GEN-LAST:event_titulacionRequeridaFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de habilidades se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de habilidades se pone vacio si tiene algo
+     * escrito
+     *
+     * @param evt
      */
     private void habilidadRequeridaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilidadRequeridaFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
-           habilidadRequeridaField.setText("");
+        if (evt.getClickCount() == 1) {
+            habilidadRequeridaField.setText("");
         }
 
     }//GEN-LAST:event_habilidadRequeridaFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del nivel requerido se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del nivel requerido se pone vacio si tiene
+     * algo escrito
+     *
+     * @param evt
      */
     private void nivelRequeridoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nivelRequeridoFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             nivelRequeridoField.setText("");
         }
 
     }//GEN-LAST:event_nivelRequeridoFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del nombre de la empresa se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del nombre de la empresa se pone vacio si
+     * tiene algo escrito
+     *
+     * @param evt
      */
     private void empresaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresaFieldMouseClicked
 
         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             empresaField.setText("");
         }
 
     }//GEN-LAST:event_empresaFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del telefono de la empresa se pone vacio si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del telefono de la empresa se pone vacio
+     * si tiene algo escrito
+     *
+     * @param evt
      */
     private void telefonoEmpresaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telefonoEmpresaFieldMouseClicked
 
-        
-         //Pone vacio el campo una vez se le da click
-        if(evt.getClickCount() == 1){
+        //Pone vacio el campo una vez se le da click
+        if (evt.getClickCount() == 1) {
             telefonoEmpresaField.setText("");
         }
-        
+
     }//GEN-LAST:event_telefonoEmpresaFieldMouseClicked
+
+    /**
+     * Elimina habilidad junto con la puntuacion de la lista de habilidades
+     * @param evt 
+     */
+    private void eliminarHabilidadPunOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarHabilidadPunOfertaBtnActionPerformed
+
+        try {
+            DefaultListModel model =(DefaultListModel) listaRequerimientos.getModel();
+            int eliminar = listaRequerimientos.getSelectedIndex();//Obtiene el elemento seleccionado
+            model.remove(eliminar);//Lo elimina
+            listaRequerimientos.setModel(model);//Actualiza la lista
+        } catch (Exception e) {
+            
+        }
+        
+        
+    }//GEN-LAST:event_eliminarHabilidadPunOfertaBtnActionPerformed
+
     
+    /**
+     * Elimina la titulación seleccionada de la lista de titulaciones
+     * @param evt 
+     */
+    private void eliminarTitulacionOfertaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarTitulacionOfertaBtnActionPerformed
+
+        try {
+            DefaultListModel model = (DefaultListModel) titulacionesRequerida.getModel();
+            int eliminar = titulacionesRequerida.getSelectedIndex();//Obtiene el elemento seleccionado
+            model.remove(eliminar);//Lo elimina
+            titulacionesRequerida.setModel(model);//Actualiza la lista
+        } catch (Exception e) {
+            
+        }
+
+    }//GEN-LAST:event_eliminarTitulacionOfertaBtnActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -2514,7 +2673,9 @@ public class Empresa extends javax.swing.JFrame {
     private javax.swing.JTextArea descripcionPuestoField;
     private javax.swing.JLabel devolverEmpresas;
     private javax.swing.JButton eliminarEmpresaBtn;
+    private javax.swing.JButton eliminarHabilidadPunOfertaBtn;
     private javax.swing.JButton eliminarOfertaBtn;
+    private javax.swing.JButton eliminarTitulacionOfertaBtn;
     private javax.swing.JTextField empresaField;
     private javax.swing.JTextField empresaOfertaField;
     private javax.swing.JTable empresaTabla;
@@ -2580,6 +2741,8 @@ public class Empresa extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator24;
     private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;

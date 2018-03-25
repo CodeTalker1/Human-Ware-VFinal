@@ -60,11 +60,15 @@ public class HumanWare extends javax.swing.JFrame {
         solicitantes.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/mundoGlobal.jpg")).getImage());
 
         DefaultListModel model = new DefaultListModel();
+        DefaultListModel modelo = new DefaultListModel();
         listaTitulacion.setModel(model);
+        listaHabilidad.setModel(modelo);
         ptr = null;
         ptr2 = null;
         model = new DefaultListModel();
-        listaHabilidad.setModel(model);
+        listaTitulacion.setModel(model);
+        modelo = new DefaultListModel();
+        listaHabilidad.setModel(modelo);
 
         noPasteNomField();
 
@@ -238,7 +242,7 @@ public class HumanWare extends javax.swing.JFrame {
         p.habilidad = habilidad;
         p.nivel = nivel;
 
-        if (ptr == null) {
+        if (ptr2 == null) {
             ptr2 = p;
         } else {
             Nodo q = ptr2;
@@ -293,7 +297,7 @@ public class HumanWare extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        ingresarBtn1 = new javax.swing.JButton();
+        añadirTitulacionBtn = new javax.swing.JButton();
         titulacionField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -308,7 +312,7 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator17 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaTitulacion = new javax.swing.JList<>();
-        ingresarBtn2 = new javax.swing.JButton();
+        añadirHabilidadPunBtn = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
@@ -319,6 +323,10 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator16 = new javax.swing.JSeparator();
         jSeparator18 = new javax.swing.JSeparator();
         jSeparator19 = new javax.swing.JSeparator();
+        eliminarTitulacionBtn = new javax.swing.JButton();
+        jSeparator20 = new javax.swing.JSeparator();
+        eliminarHabilidadPunBtn = new javax.swing.JButton();
+        jSeparator21 = new javax.swing.JSeparator();
         fileChooser = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -678,19 +686,19 @@ public class HumanWare extends javax.swing.JFrame {
         jLabel10.setText("Retribución:");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, -1));
 
-        ingresarBtn1.setBackground(new java.awt.Color(0, 0, 0));
-        ingresarBtn1.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        ingresarBtn1.setForeground(new java.awt.Color(0, 0, 0));
-        ingresarBtn1.setText("Añadir");
-        ingresarBtn1.setBorder(null);
-        ingresarBtn1.setContentAreaFilled(false);
-        ingresarBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ingresarBtn1.addActionListener(new java.awt.event.ActionListener() {
+        añadirTitulacionBtn.setBackground(new java.awt.Color(0, 0, 0));
+        añadirTitulacionBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        añadirTitulacionBtn.setForeground(new java.awt.Color(0, 0, 0));
+        añadirTitulacionBtn.setText("Añadir");
+        añadirTitulacionBtn.setBorder(null);
+        añadirTitulacionBtn.setContentAreaFilled(false);
+        añadirTitulacionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        añadirTitulacionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingresarBtn1ActionPerformed(evt);
+                añadirTitulacionBtnActionPerformed(evt);
             }
         });
-        jPanel5.add(ingresarBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 80, 20));
+        jPanel5.add(añadirTitulacionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 80, 20));
 
         titulacionField.setBackground(new java.awt.Color(255, 255, 255));
         titulacionField.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
@@ -813,19 +821,19 @@ public class HumanWare extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, 50));
 
-        ingresarBtn2.setBackground(new java.awt.Color(0, 0, 0));
-        ingresarBtn2.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        ingresarBtn2.setForeground(new java.awt.Color(0, 0, 0));
-        ingresarBtn2.setText("Añadir");
-        ingresarBtn2.setBorder(null);
-        ingresarBtn2.setContentAreaFilled(false);
-        ingresarBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ingresarBtn2.addActionListener(new java.awt.event.ActionListener() {
+        añadirHabilidadPunBtn.setBackground(new java.awt.Color(0, 0, 0));
+        añadirHabilidadPunBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        añadirHabilidadPunBtn.setForeground(new java.awt.Color(0, 0, 0));
+        añadirHabilidadPunBtn.setText("Añadir");
+        añadirHabilidadPunBtn.setBorder(null);
+        añadirHabilidadPunBtn.setContentAreaFilled(false);
+        añadirHabilidadPunBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        añadirHabilidadPunBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingresarBtn2ActionPerformed(evt);
+                añadirHabilidadPunBtnActionPerformed(evt);
             }
         });
-        jPanel5.add(ingresarBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 80, 20));
+        jPanel5.add(añadirHabilidadPunBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 80, 20));
 
         jSeparator9.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
@@ -833,11 +841,11 @@ public class HumanWare extends javax.swing.JFrame {
 
         jSeparator10.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 60, 10));
+        jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 60, 10));
 
         jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 60, 20));
+        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 60, 20));
 
         jSeparator12.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
@@ -866,6 +874,42 @@ public class HumanWare extends javax.swing.JFrame {
         jSeparator19.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator19.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 150, 10));
+
+        eliminarTitulacionBtn.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarTitulacionBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        eliminarTitulacionBtn.setForeground(new java.awt.Color(0, 0, 0));
+        eliminarTitulacionBtn.setText("Eliminar");
+        eliminarTitulacionBtn.setBorder(null);
+        eliminarTitulacionBtn.setContentAreaFilled(false);
+        eliminarTitulacionBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarTitulacionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarTitulacionBtnActionPerformed(evt);
+            }
+        });
+        jPanel5.add(eliminarTitulacionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 60, -1));
+
+        jSeparator20.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator20.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 60, 10));
+
+        eliminarHabilidadPunBtn.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarHabilidadPunBtn.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        eliminarHabilidadPunBtn.setForeground(new java.awt.Color(0, 0, 0));
+        eliminarHabilidadPunBtn.setText("Eliminar");
+        eliminarHabilidadPunBtn.setBorder(null);
+        eliminarHabilidadPunBtn.setContentAreaFilled(false);
+        eliminarHabilidadPunBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarHabilidadPunBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarHabilidadPunBtnActionPerformed(evt);
+            }
+        });
+        jPanel5.add(eliminarHabilidadPunBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 80, -1));
+
+        jSeparator21.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator21.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 60, 20));
 
         agregarFrame.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 510, 530));
 
@@ -1039,6 +1083,10 @@ public class HumanWare extends javax.swing.JFrame {
 
     private void agregarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTablaActionPerformed
 //Muestre la tabla y agregar solicitantes
+        DefaultListModel model = new DefaultListModel();
+        listaHabilidad.setModel(model);//Actualiza la lista cada vez que entra
+        DefaultListModel modelo = new DefaultListModel();//Actualiza la lista cada vez que entra
+        listaTitulacion.setModel(modelo);
         nombreField.setText("Ingrese el nombre");
         emailField.setText("Ingrese el email");
         titulacionField.setText("Ingrese la titulación");
@@ -1066,54 +1114,58 @@ public class HumanWare extends javax.swing.JFrame {
     private void agregarSolicitanteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarSolicitanteBotonActionPerformed
         //Frame para agregar datos del solicitante
 
-        boolean vacio = false, vacioFoto = false;
-        long telefono = 0;
-        long retribucion = 0;
-        DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
+        try {
+            boolean vacio = false, vacioFoto = false;
+            long telefono = 0;
+            long retribucion = 0;
+            DefaultTableModel model = (DefaultTableModel) solicitantesTable.getModel();
 
-        String nombre = nombreField.getText(); //Recibe el valor escrito en el campo del nombre
-        if (nombreField.getText().isEmpty()) {
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        }
+            String nombre = nombreField.getText(); //Recibe el valor escrito en el campo del nombre
+            if (nombreField.getText().isEmpty()) {
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            }
 
-        String email = emailField.getText(); //Recibe el valor escrito en el campo del Email
-        if (emailField.getText().isEmpty()) {
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        }
+            String email = emailField.getText(); //Recibe el valor escrito en el campo del Email
+            if (emailField.getText().isEmpty()) {
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            }
 
-        String jornada = (String) jornadaOpcionCombo.getSelectedItem(); //Recibe el valor seleccionado del comboBox para la 
-        //jornada
-        if (telefonoField.getText().isEmpty()) {
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        } else {
-            telefono = Long.parseLong(telefonoField.getText()); //Si el campo de telefono no esta vacio recibe el valor
-        }
+            String jornada = (String) jornadaOpcionCombo.getSelectedItem(); //Recibe el valor seleccionado del comboBox para la 
+            //jornada
+            if (telefonoField.getText().isEmpty()) {
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            } else {
+                telefono = Long.parseLong(telefonoField.getText()); //Si el campo de telefono no esta vacio recibe el valor
+            }
 
-        Object foto = Foto;//A traves del FileChooser se selecciona la foto 
-        if (Foto == null) {
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        }
+            Object foto = Foto;//A traves del FileChooser se selecciona la foto 
+            if (Foto == null) {
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            }
 
-        if (retribucionField.getText().isEmpty()) {
-            vacio = true; //Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        } else {
-            retribucion = Long.parseLong(retribucionField.getText());//Recibe el valor del campo de retribución
-        }                                                            //Si este es diferente de vacio
+            if (retribucionField.getText().isEmpty()) {
+                vacio = true; //Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            } else {
+                retribucion = Long.parseLong(retribucionField.getText());//Recibe el valor del campo de retribución
+            }                                                            //Si este es diferente de vacio
 
-        List<String> titulacion = listaTitulacion.getSelectedValuesList();//Es necesario seleccionar las titulaciones para agregarlas a la lista
-        if (titulacion.isEmpty() || titulacion.size() < 2) {
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        }
-        List<String> habilidadPun = listaHabilidad.getSelectedValuesList();//Es necesario seleccionar las habilidades para agregarlas a la lista de habilidades
-        if (habilidadPun.isEmpty() || habilidadPun.size() < 3) { //Junto con su puntuacion
-            vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
-        }
+            List<String> titulacion = listaTitulacion.getSelectedValuesList();//Es necesario seleccionar las titulaciones para agregarlas a la lista
+            if (titulacion.isEmpty() || titulacion.size() < 2) {
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            }
+            List<String> habilidadPun = listaHabilidad.getSelectedValuesList();//Es necesario seleccionar las habilidades para agregarlas a la lista de habilidades
+            if (habilidadPun.isEmpty() || habilidadPun.size() < 3) { //Junto con su puntuacion
+                vacio = true;//Si esta vació se activara un switch booleano el cual comprobara si faltan datos
+            }
 
-        if (vacio || vacioFoto) {//Aquí se comprueba que no falte la foto y que los campos no esten vacios
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            model.addRow(new Object[]{nombre, email, telefono, retribucion, foto, jornada, titulacion, habilidadPun});
-            agregarFrame.setVisible(false);//Se agregan los datos a la tabla y se cierra el frame
+            if (vacio || vacioFoto) {//Aquí se comprueba que no falte la foto y que los campos no esten vacios
+                JOptionPane.showMessageDialog(null, "Debe llenar todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                model.addRow(new Object[]{nombre, email, telefono, retribucion, foto, jornada, titulacion, habilidadPun});
+                agregarFrame.setVisible(false);//Se agregan los datos a la tabla y se cierra el frame
+            }
+        } catch (Exception e) {
+
         }
 
 
@@ -1477,7 +1529,7 @@ public class HumanWare extends javax.swing.JFrame {
      * @param evt
      */
 
-    private void ingresarBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtn1ActionPerformed
+    private void añadirTitulacionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirTitulacionBtnActionPerformed
         //Sirve para agregar titulaciones a la lista
 
         DefaultListModel model = (DefaultListModel) listaTitulacion.getModel();
@@ -1494,14 +1546,14 @@ public class HumanWare extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Solo puede agregar 2 titulaciones", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-    }//GEN-LAST:event_ingresarBtn1ActionPerformed
+    }//GEN-LAST:event_añadirTitulacionBtnActionPerformed
 
     /**
      * Agrega habilidades junto con su puntuación a la lista
      *
      * @param evt
      */
-    private void ingresarBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtn2ActionPerformed
+    private void añadirHabilidadPunBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirHabilidadPunBtnActionPerformed
 //Sirve para agregar habilidades y una respectiva puntuación a la lista
         DefaultListModel model = (DefaultListModel) listaHabilidad.getModel();
 
@@ -1518,7 +1570,7 @@ public class HumanWare extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Solo puede ingresar 3 habilidad", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-    }//GEN-LAST:event_ingresarBtn2ActionPerformed
+    }//GEN-LAST:event_añadirHabilidadPunBtnActionPerformed
 
     /**
      * Desplaza los iconos para cerrar el programa
@@ -1597,6 +1649,7 @@ public class HumanWare extends javax.swing.JFrame {
 
     /**
      * Cuando se da doble click se cierra todo el programa
+     *
      * @param evt
      */
 
@@ -1609,10 +1662,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_cerrarFMouseClicked
 
     /**
-     * Cuando se le da click al campo del nombre se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del nombre se va a vacio para empezar a
+     * llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void nombreFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del nombre
         if (evt.getClickCount() == 1) {
@@ -1622,10 +1677,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del email se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del email se va a vacio para empezar a
+     * llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void emailFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del email
         if (evt.getClickCount() == 1) {
@@ -1635,10 +1692,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_emailFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo del telefono se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del telefono se va a vacio para empezar a
+     * llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void telefonoFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telefonoFieldMouseClicked
 //Una vez clickea el campo borrro en el campo del telefono
         if (evt.getClickCount() == 1) {
@@ -1648,10 +1707,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_telefonoFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de la retribución se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de la retribución se va a vacio para
+     * empezar a llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void retribucionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retribucionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la retribución
         if (evt.getClickCount() == 1) {
@@ -1661,10 +1722,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_retribucionFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de la titulación se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de la titulación se va a vacio para
+     * empezar a llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void titulacionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titulacionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la titulación
         if (evt.getClickCount() == 1) {
@@ -1674,10 +1737,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_titulacionFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de la habilidad se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de la habilidad se va a vacio para empezar
+     * a llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void habilidadFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habilidadFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la habilidad
         if (evt.getClickCount() == 1) {
@@ -1686,11 +1751,13 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_habilidadFieldMouseClicked
 
-     /**
-     * Cuando se le da click al campo de la puntuacion se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+    /**
+     * Cuando se le da click al campo de la puntuacion se va a vacio para
+     * empezar a llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void puntuacionFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puntuacionFieldMouseClicked
 //Una vez clickea el campo borrro en el campo de la puntuación
         if (evt.getClickCount() == 1) {
@@ -1700,11 +1767,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_puntuacionFieldMouseClicked
 
     /**
-     *En el frame para agregar solicitantes a la tabla, desplaza los iconos cuando se la click al menu en la
-     * esquina superior izquierda
-     * @param evt 
+     * En el frame para agregar solicitantes a la tabla, desplaza los iconos
+     * cuando se la click al menu en la esquina superior izquierda
+     *
+     * @param evt
      */
-    
+
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
 
 //Desde el frame para agregar solicitantes
@@ -1712,7 +1780,7 @@ public class HumanWare extends javax.swing.JFrame {
         AnimationClass cambior = new AnimationClass();
         AnimationClass retroceder = new AnimationClass();
         //Se desplaza hacia la derecha
-        retroceder.jLabelXRight(-30, 10, 10, 5, devolverseFrame); 
+        retroceder.jLabelXRight(-30, 10, 10, 5, devolverseFrame);
         cambior.jLabelXRight(-30, 10, 10, 5, usuarioCambio);
         cerrar.jLabelXRight(-30, 10, 10, 5, cerrarTodo);
 
@@ -1729,10 +1797,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     /**
-     * Cuando se le da click al campo del usuario se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo del usuario se va a vacio para empezar a
+     * llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void usuarioFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioFieldMouseClicked
 //Pone el campo vacio al momento de digitar el usuario
         if (evt.getClickCount() == 1) {
@@ -1742,10 +1812,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioFieldMouseClicked
 
     /**
-     * Cuando se le da click al campo de la contraseña se va a vacio para empezar a llenarlo, si tiene algo escrito
-     * @param evt 
+     * Cuando se le da click al campo de la contraseña se va a vacio para
+     * empezar a llenarlo, si tiene algo escrito
+     *
+     * @param evt
      */
-    
+
     private void contraseñaFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaFieldMouseClicked
 //Pone el campo vacio al momento de digitar la contraseña 
         if (evt.getClickCount() == 1) {
@@ -1755,10 +1827,12 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_contraseñaFieldMouseClicked
 
     /**
-     * Cuando se la doble click vuelve al frame del login para cambiar de usuario
-     * @param evt 
+     * Cuando se la doble click vuelve al frame del login para cambiar de
+     * usuario
+     *
+     * @param evt
      */
-    
+
     private void usuarioCambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioCambioMouseClicked
 //Cambia inmediatamente al frame inicial
         if (evt.getClickCount() == 2) {
@@ -1772,7 +1846,8 @@ public class HumanWare extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioCambioMouseClicked
 
     /**
-     *Cierra el programa una vez se le da doble click
+     * Cierra el programa una vez se le da doble click
+     *
      * @param evt
      */
     private void cerrarTodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarTodoMouseClicked
@@ -1800,6 +1875,39 @@ public class HumanWare extends javax.swing.JFrame {
 
     }//GEN-LAST:event_devolverseFrameMouseClicked
 
+    /**
+     * Eliminar elementos en la lista de titulaciones
+     * @param evt 
+     */
+    private void eliminarTitulacionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarTitulacionBtnActionPerformed
+
+        try {
+            DefaultListModel model = (DefaultListModel) listaTitulacion.getModel();
+            int eliminar = listaTitulacion.getSelectedIndex();//Obtiene el elemento seleccionado
+            model.remove(eliminar);//Lo elimina
+            listaTitulacion.setModel(model);//Actualiza la lista
+        } catch (Exception e) {
+            
+        }
+
+    }//GEN-LAST:event_eliminarTitulacionBtnActionPerformed
+
+    /**
+     * Elimina habilidades junto con la puntuacion de las misma en la lista de habilidades
+     * @param evt 
+     */
+    private void eliminarHabilidadPunBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarHabilidadPunBtnActionPerformed
+
+        try {
+            DefaultListModel model = (DefaultListModel) listaHabilidad.getModel();
+            int eliminar = listaHabilidad.getSelectedIndex();//Obtiene el elemento seleccionado
+            model.remove(eliminar);//Lo elimina
+            listaHabilidad.setModel(model);//Actualiza la lista
+        } catch (Exception e) {
+            
+        }
+        
+    }//GEN-LAST:event_eliminarHabilidadPunBtnActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1845,6 +1953,8 @@ public class HumanWare extends javax.swing.JFrame {
     private javax.swing.JFrame agregarFrame;
     private javax.swing.JButton agregarSolicitanteBoton;
     private javax.swing.JButton agregarTabla;
+    private javax.swing.JButton añadirHabilidadPunBtn;
+    private javax.swing.JButton añadirTitulacionBtn;
     private javax.swing.JButton cargarDatosSolicitantesBtn;
     private javax.swing.JLabel cerrarF;
     private javax.swing.JLabel cerrarFrame;
@@ -1852,13 +1962,13 @@ public class HumanWare extends javax.swing.JFrame {
     private javax.swing.JPasswordField contraseñaField;
     private javax.swing.JButton crearUsuarioBtn;
     private javax.swing.JLabel devolverseFrame;
+    private javax.swing.JButton eliminarHabilidadPunBtn;
     private javax.swing.JButton eliminarSolicitanteBtn;
+    private javax.swing.JButton eliminarTitulacionBtn;
     private javax.swing.JTextField emailField;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JButton guardarTable;
     private javax.swing.JTextField habilidadField;
-    private javax.swing.JButton ingresarBtn1;
-    private javax.swing.JButton ingresarBtn2;
     private javax.swing.JButton ingresarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1901,6 +2011,8 @@ public class HumanWare extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
