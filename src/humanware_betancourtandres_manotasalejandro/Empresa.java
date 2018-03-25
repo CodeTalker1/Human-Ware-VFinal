@@ -392,7 +392,6 @@ public class Empresa extends javax.swing.JFrame {
         cerrar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        agregarEmpresaFrame.setMaximumSize(new java.awt.Dimension(630, 399));
         agregarEmpresaFrame.setMinimumSize(new java.awt.Dimension(630, 399));
         agregarEmpresaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -711,7 +710,6 @@ public class Empresa extends javax.swing.JFrame {
 
         ofertaEmpresaTrabajo.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
 
-        ingresarOferta.setMaximumSize(new java.awt.Dimension(767, 478));
         ingresarOferta.setMinimumSize(new java.awt.Dimension(767, 478));
         ingresarOferta.getContentPane().setLayout(null);
 
@@ -1160,7 +1158,7 @@ public class Empresa extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, false, false, true
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
